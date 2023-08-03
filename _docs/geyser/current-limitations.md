@@ -1,33 +1,33 @@
 ---
-title: Current Limitations
+title: 当前限制
 ---
 
-With Geyser being a protocol translator between two different games with two different codebases, there are a handful of limitations that Geyser is unfortunately unable to handle. Despite Minecraft Bedrock and Java being quite close in comparison, there are some vast differences in many areas.
+Geyser 是两个不同版本游戏的协议转换器,但很遗憾的是,Geyser 仍有一些无法解决的限制.虽然 Minecraft 基岩版 和 Java版 看起来在很多地方是一致的,但它们在某些领域上仍有巨大的差异.
 
-The following things cannot be fixed without changes to Bedrock or the Java protocol in general. As of now, they are not fixable in Geyser.
+除非 Java版或者基岩版 协议进行更新或者修改,否则下列限制 Geyser 永远无法修复:
 
-- Custom heads in inventories
-- Clickable links in chat
-- Glowing effect
-- Crafting in the 2x2 menu while in creative mode
-- Distinguishing between left and right clicks in inventories
-- Redstone dot blockstates
-- "Can be placed on/destroyed" tag for *some* blocks - for example, different colors of clay/wool that don't exist as separate blocks
-- Potion colors implemented using NBT
-- Various command arguments for any command that doesn't use the Minecraft Brigadier library
-- Anything that relies on tab complete or typing in the chat UI (related to the above) - Bedrock sends no packet that indicates they are in this menu
-- Unable to see banner layers past 6
-- Movement issues around bamboo due to offset differences between Java and Bedrock. The following plugin works around this, but please read the README before using: https://github.com/Camotoy/GeyserHacks
-- Custom anvil recipes
-- Heights lower than -64 or higher than 320 in the overworld with extended height enabled, and heights lower than 0 or higher than 256 in other dimensions
-- Dolphin's Grace potion effect visuals (effects should still work correctly)
-- Invisible item frames
-- Blocks (excluding jack-o-lantern) on entity heads (E.G. armor stands, players)
+- 在背包内显示 玩家头颅 的皮肤
+- 聊天框内的 可点击信息
+- 发光效果
+- 在 创造模式 中使用 2x2 合成
+- 在背包内区分基岩版玩家的 左键和右键
+- 在背包内区分基岩版玩家的 左键和右键
+- 一些方块 的 "无法放置/破坏" 标签 - 例如,不同颜色的羊毛、粘土
+- 通过 NBT 实现的自定义颜色的药水
+- 不使用 Minecraft Brigadier 库的命令的命令补充提示
+- 任何在聊天框依赖 Tab 补充和直接发送的聊天框UI
+- 任何在聊天框依赖 Tab 补充和直接发送的聊天框UI
+- 由于 Java版 和 基岩版 之间的差异,玩家在竹子周围存在移动问题.下面的插件可解决此问题,但请在使用前阅读 README: https://github.com/Camotoy/GeyserHacks
+- 自定义铁砧配方
+- 主世界维度最低高度低于 -64 或者最高高度高于 320 、在其他维度最低高度低于 0 或者最高高度高于 256.
+- 海豚的恩惠视觉效果（药水效果本身可以正常工作）
+- 隐形物品展示框
+- 实体头上的方块（例如盔甲架、玩家）
 
-The following changes **are supported** with the [GeyserOptionalPack](/other/geyseroptionalpack/), which is a Bedrock resource pack you can install for additional functionality for features Bedrock does not natively support:
-- Custom armor stand poses
-- Illusioners
-- Hit particles and other miscellaneous particles not natively in Bedrock
-- Offhand animations
-- Shulker invisibility
-- Spectral arrow texture
+下面的限制 可以通过 使用 [GeyserOptionalPack](/other/geyseroptionalpack/) 解决,它是一个资源包,为你的基岩版客户端带来额外的一些功能:
+- 自定义盔甲架姿势
+- 幻术师
+- 击打粒子和其他基岩版原版不存在的粒子
+- 副手动画
+- 潜影贝隐形
+- 光灵箭纹理
