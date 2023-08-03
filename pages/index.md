@@ -9,4 +9,4 @@ permalink: /
 
 # GeyserMC Wiki
 
-Here you will find setup guides, FAQs and other information about GeyserMC projects including but not limited to Geyser and Floodgate. You can access the various pages from the sidebar on the left.
+欢迎浏览GeyserChineseWiki.译者为qscbm187531,本文档部分翻译取自 SuperiorMC 翻译的[GeyserWiki](https://geyser.superiormc.cn/)
