@@ -80,127 +80,87 @@
 
     - title: 在使用 Floodgate 时，执行指令的玩家变量是什么？
       content: |
-        If there is a prefix on Floodgate players, you must include the prefix in the name. Floodgate also replaces all spaces in names with underscores, so be sure to replace any spaces with underscores when executing the command. If this does not work, put double quotes around the name.
+        如果基岩版玩家有前缀，所有指令的 必须 在名称中 包含该前缀 。Floodgate 还将名称中的所有 空格 替换为 下划线 ，因此在执行命令时请务必将所有空格替换为下划线。 如果这不起作用，请在名称周围加上双引号。
 
-        Example: `/tp ".<bedrock_username>"`
+        示例: /tp ".<基岩版玩家>"。
 
-    - title: How do I add players to the whitelist when using Floodgate?
+    - title: 在使用 Floodgate 时，我该如何添加基岩版玩家到白名单内？
       content: |
-        There are three ways you can do this.
+        您可以通过三种方式执行此操作。 第一种方法是使用 Floodgate 的内置白名单命令，/fwhitelist add .<基岩版玩家>。 第二种方法是执行 /whitelist off 关闭白名单，然后让基岩版玩家加入，然后执行 /whitelist add ".<基岩版玩家>"指令，最后执行 /whitelist on 重新打开白名单。 ( 如果你使用了基岩版和Java版账号连接功能，那么你无需再为基岩版玩家设置白名单，在 Java版 玩家尝试申请连接后，对应的基岩版玩家的游戏ID会被立即给予白名单 ) 第三种方法是添加基岩版玩家的 UUID ( 由 Floodgate 生成 ) 添加到 whitelist.json 文件，然后执行 /whitelist reload 命令。
 
-        1. Use Floodgate’s built-in whitelist command: `/fwhitelist add <bedrock_username>`. This will only work if the player has joined any Geyser server already.
-
-        2. Turn off the whitelist using `/whitelist off`, then get the Geyser player to join. After that, run `/whitelist add ".<bedrock_username>"`, and finally, turn the whitelist back on using `/whitelist on`. 
-        When using Local Linking: If you're linking a Bedrock account to an existing whitelisted Java account, you don't need to whitelist the Bedrock account separately. You can link the accounts and immediately turn the whitelist back on.
-
-        3. Add the player’s UUID, as given by Floodgate, to the `whitelist.json` file. Then, run `/whitelist reload` to update the whitelist.
-
-        Choose the method that suits your preferences and server setup.
-
-    - title: How do I find a player's UUID without them joining when using Floodgate?
+    - title: 当使用 Floodgate 时，如何实现在玩家没有加入服务器的情况下查看他们的 UUID？
       content: |
-        Use [this page.](https://uuid.kejona.dev/) If this doesn't work, then try this method:
+        使用 [这个页面](https://uuid.kejona.dev/) 如果无效请尝试这个方法:
         
-        First, you'll need to get the XUID of the player. There are several third-party websites to find this, for example, [this one](https://cxkes.me/xbox/xuid) (unaffiliated with Geyser). Make sure to choose "Hexidecimal." You'll need to enter the player's Xbox Gamertag, and, once submitted, it should display the XUID in the format of `xxxxxxxxxxxxxxxx`. To turn the XUID into a UUID that Java Edition can recognize, you need to put the XUID in this format: `00000000-0000-0000-xxxx-xxxxxxxxxxxx`. If formatted right, Java Edition should accept it as a UUID.
-
-    - title: Can I remove the prefix of Floodgate players?
+        首先，您需要获取基岩玩家的 XUID。 有几个第三方网站可以找到这个，例如 [这个](https://cxkes.me/xbox/xuid)（与 Geyser 无关）。确保选择“十六进制”。 您需要输入玩家的 Xbox 名，并且一旦提交，它应该以 xxxxxxxxxxxxxxxx 的格式显示 XUID。 要把XUID变成Java版可以识别的UUID，需要把XUID写成这样的格式：00000000-0000-0000-xxxx-xxxxxxxxxxxx。如果格式正确，Java 版应该可以识别它并作为 UUID。
+    - title: 在使用 Floodgate 时，我能删除基岩玩家的前缀吗?
       content: |
-        While you can remove the prefix, it is generally recommended not to remove the prefix to prevent situations where player usernames are the same on both editions (Ex: Bedrock Username: `JohnDoe`, Java Username: `JohnDoe`). While they have different UUIDs, they have the same username, which may cause conflicts with commands that involve a player name. If you want to remove the prefix to use commands, Try adding quotation marks around the name. Example: `/tp ".<bedrock_username>"` Otherwise, the prefix is located in the Floodgate `config.yml` under `username-prefix:`.
+        虽然您可以删除基岩版玩家前缀，但通常建议 不要删除 它，因为这可以防止出现两个版本中 玩家名称相同 的情况（例如：基岩版玩家名称：qscbm187531，Java 版玩家名称：qscbm187531）。由于 Floodgate 与 Java版服务端 的 UUID 生成规则不同，这导致虽然他们具有不同的 UUID，但是他们都有相同的游戏名称，从而可能造成 涉及玩家名称的指令 发生 冲突。如果尝试删除基岩版玩家前缀只是为了使用指令，请尝试在游戏名称两边添加引号。示例：/tp ".<基岩版玩家>"。如果你执意要删除，那么基岩版玩家前缀的配置在 Floodgate 文件夹内的 config.yml 文件中的 username-prefix: 下，你可以将其修改为 "" 以删除。
 
-    - title: Do I need Floodgate in order to use Geyser?
+    - title: 要使用 Geyser 就必须安装 Floodgate 吗？
       content: |
-        No; Floodgate is only required if you wish to allow Bedrock clients to join without authenticating to Java servers. Without the Floodgate plugin, Geyser can either authenticate to Mojang in online mode, or join without authentication in an offline mode server (though this is unsupportable and dangerous as anyone can join your server and is against Mojang's EULA).
+        不。当你的服务器是 正版服务器 但你不希望基岩版玩家也需要 Java版正版账号 登录，那么这时你可以通过安装 Floodgate 实现这一愿望。但是如果你是正版服务器且也想要让基岩版玩家必须使用 Java 版正版账号或者你是盗版服务器，那么 Floodgate 不是强制需要你去安装的。
 
-    - title: Sometimes, when I go really far out, the world starts to experience very odd visual bugs...
+    - title: 有时，世界跑的很远以后客户端会很卡.
       content: |
-        This is a Bedrock client issue caused by Bedrock being 32-bit and Java being 64-bit. For more information read [here](https://minecraft.gamepedia.com/Bedrock_Edition_distance_effects).
-
-    - title: Can I use Geyser to allow Java players to connect to my Bedrock server?
+        这是 基岩版 客户端的问题。具体请 [点击](https://minecraft.fandom.com/zh/wiki/%E5%9F%BA%E5%B2%A9%E7%89%88%E4%B8%AD%E7%9A%84%E8%B7%9D%E7%A6%BB%E7%8E%B0%E8%B1%A1) 这里查看。
+    - title: 我可以使用 Geyser 使得 Java 版玩家进入基岩版服务器吗?
       content: |
-        No, this is a translation tool to allow Bedrock players to connect to Java servers. It does not work the opposite way.
+        不能，Geyser只是个转发基岩版数据包为Java版数据包的工具
 
-    - title: Can I use Geyser with Pterodactyl Panel?
+    - title: 我可以在翼龙面板上使用 Geyser 吗?
       content: |
-        Yes, you can use Geyser as a plugin or a mod for your Minecraft server software running on Pterodactyl. There is also an official egg for the standalone version. It supports auto-updating and has all config options easily editable. You can find it [here](https://github.com/GeyserMC/pterodactyl-stuff), download the JSON egg, and import it into your panel. Make sure the Geyser port (using UDP) is exported out to the host & allocated the port to the server.
+        可以.
 
-    - title: Can I use Geyser with Ngrok?
+    - title: 我可以在翼龙面板上使用 Ngrok 吗?
       content: |
-        Unfortunately, Ngrok is TCP-only, so you will not be able to use Geyser with Ngrok. As an alternative, you can use [playit.gg](https://playit.gg), which supports both TCP and UDP.
+        不可以,Ngrok只支持TCP连接.
 
-    - title: How do I setup Cosmic Guard?
+    - title: 我可以通过 Geyser 连接一个旧版本的服务器吗？
       content: |
-        1. You will need access to the host systems terminal. Note: This guide is for Linux systems only!
-        2. Setup a "Guard" select gaming then Minecraft: Bedrock edition.
-        3. Click setup for linux and run the guardian installer and start the service.
-        4. Run "guardian status" and take note of the "Local IP" it starts with "10.31.x.x".
-        5. Go to the Geyser config.yml and update the Bedrock address to the Local IP which you found above.
-        6. Restart the mc server and test it out, it should work for both Java and Bedrock.
+        安装ViaVersion
 
-    - title: Can I connect Geyser to an older server?
+    - title: 我可以通过 Geyser 连接一个 Mod (Forge/Fabric) 服务器吗？
       content: |
-        If the server has ViaVersion and/or supports the latest Minecraft version, yes. However, we are unable to support older versions of Minecraft due to a limitation in our Java support library.
+       只要不需要客户端mod就可以
 
-    - title: Can I connect Geyser to a modded (Forge/Fabric) server?
+    - title: 如何实现自动更新 Geyser？
       content: |
-        The short answer: if a vanilla client can join the server, then so can Geyser.
+        GeyserUpdater ([GitHub 页面](https://github.com/ProjectG-Plugins/GeyserUpdater)/[Spigot 页面](https://www.spigotmc.org/resources/88555/)) 可以实现.
 
-        The long answer: currently, there is no way for Geyser to translate the features that most mods add (blocks, items, etc.). Therefore, servers that require mods to be installed clientside are unsupportable through Geyser.
-
-    - title: How can I auto-update Geyser?
+    - title: 如何让 DiscordSRV 显示 Floodgate 2.0 或者 GeyserSkinManager 的皮肤?
       content: |
-        GeyserUpdater ([GitHub page](https://github.com/ProjectG-Plugins/GeyserUpdater)/[Spigot page](https://www.spigotmc.org/resources/88555/)) is a Spigot/BungeeCord plugin option for auto-updating. Please note that this plugin is also unaffiliated and unsupported by Geyser, and users should redirect support for the plugin to its [Discord](https://discord.gg/U5MC2tcCz9).
+        把配置 `AvatarUrl` 改为: `AvatarUrl: https://mc-heads.net/avatar/{texture}/{size}.png`
 
-    - title: How can I make DiscordSRV show Floodgate 2.0 or GeyserSkinManager skins?
+        注意: 版本需要 DiscordSRV v1.22.0 及以上. 
+
+    - title: 我可以将 Buycraft (Tebex) 和 Geyser一起使用吗?
       content: |
-        Replace the `AvatarUrl` line in your DiscordSRV config with this: `AvatarUrl: https://mc-heads.net/avatar/{texture}/{size}.png`
+        完全可以
+        ### 支持步骤如下  
+        - Buycraft-> 创建商城
+        - 选择游戏-> Minecraft Offline
+        - 确认-> 点击 "Create my Webstore"
+        - 命名服务器 & 选择货币-> 继续
+        - 选择游戏服务器-> 继续
+        - 下载最适合你服务器的插件版本
+        - 在控制台执行命令
 
-        Note: you need to be running DiscordSRV v1.22.0 or newer. Floodgate 2.0 or GeyserSkinRestorer is still required for skins to show up for Java players and for this to work.
+        设置好了
 
-        Alternatively, if you cannot get the above AvatarUrl to work with DiscordSRV, or you'd like to use it with another plugin that does not support texture ids, you can use the [TydiumCraft Skin API.](https://tydiumcraft.net/docs/skinapi)
+        **(注意, 如果Floodgate有设置前缀, Bedrock玩家必须输入带有前缀的名字)**
 
-    - title: Can I use Buycraft (Tebex) with Geyser?
+    - title: 我可以将 CraftingStore 和 Geyser一起使用吗?
       content: |
-        You sure can! Buycraft supports Java & Bedrock players via the Offline store mode **(Recommended to be used with Floodgate)**
+        操作步骤和上个问题的流程基本一致
 
-        **(Currently, Buycraft does not support special symbols like `*` or `-`, so you'll have to change the Floodgate prefix to `_` or remove it entirely.)**
-        ### Steps to create a store to support both versions        
-        - Buycraft-> Create Webstore
-        - Select Game-> Minecraft Offline
-        - Continue-> Click "Create my Webstore"
-        - Name your server & Select currency-> Continue
-        - Select Game Server-> Continue
-        - Download the plugin version that best suits your server.
-        - Execute the secret command from your server's console
-
-        Your store is now set up to support Bedrock & Java players.
-
-        **(Please note, if you are using a prefix with Floodgate, Bedrock players will have to enter the prefix.)**
-
-    - title: Can I use CraftingStore with Geyser?
-      content: |
-        You sure can! Buycraft supports Java & Bedrock players via the Offline store mode **(Recommended to be used with Floodgate)**
-
-        **(Currently, Buycraft does not support special symbols like `*` or `-`, so you'll have to change the Floodgate prefix to `_` or remove it entirely.)**
-        ### Steps to create a store to support both versions
-        - Buycraft-> Create Webstore
-        - Select Game-> Minecraft Offline
-        - Continue-> Click "Create my Webstore"
-        - Name your server & Select currency-> Continue
-        - Select Game Server-> Continue
-        - Download the plugin version that best suits your server.
-        - Execute the secret command from your server's console
-
-        Your store is now set up to support Bedrock & Java players.
-
-        **(Please note, if you are using a prefix with Floodgate, Bedrock players will have to enter the prefix.)**
-
-    - title: What languages does Geyser support?
+    - title: Geyser 支持哪些语言？
       content: |  
-        We aim to support any of the bedrock languages; see [here](https://translate.geysermc.org/) for our Crowdin page, and below is a list of all the language codes. We also can add support for more languages, and please request them in the Discord server if you are willing to translate them. (Enabled clientside via [https://www.curseforge.com/minecraft/mc-addons/translations-for-minecraft](https://www.curseforge.com/minecraft/mc-addons/translations-for-minecraft))
+        支持所有基岩版支持的语言; 转到 [这里](https://translate.geysermc.org/) 查看 Crowdin 页面, 下面是所有语言和其对应的代码。我们同时也对基岩版本身不提供支持的语言提供额外支持，你可以在下面查看。 (客户端语言调整请查看 https://www.curseforge.com/minecraft/mc-addons/translations-for-minecraft)
+        
+        ### 基岩版语言
 
-        ### Bedrock languages    
-
-        |Name                        |Code |
+        |语言名称                      |代码 |
         |----------------------------|-----|
         |Bulgarian                   |bg_bg|
         |Czech                       |cs_cz|
@@ -232,32 +192,31 @@
         |Chinese Simplified (China)  |zh_cn|
         |Chinese Traditional (Taiwan)|zh_tw|
 
-        ### Additional languages
+        ### 额外提供支持的语言
 
-        |Name                        |Code |
+        |语言名称                      |代码 |
         |----------------------------|-----|
         |Afrikaans                   |af_za|
         |Belarusian                  |be_by|
         |Hebrew                      |he_il|
         |Hindi                       |hi_in|
 
-    - title: Adding custom Geyser translation overrides
+    - title: 添加自定义Geyser翻译
       content: |
-        Please note that you cannot add strings that work in Minecraft formatting - these strings are only for places where Geyser uses them.
+        请注意，你无法修改Minecraft本身的字符串，你只能修改Geyser的语言设置
 
-        To start, create a `languages` folder in the same directory as the Geyser config file.
-        Inside of it, you'll need to add a file with your desired locale ending in `.properties`. You can see
-        [here](https://github.com/GeyserMC/languages/tree/master/texts) for the locale files that Geyser uses - 
-        you can download these as a starting point, or you can just add the strings you want to overwrite. 
+        创建 `languages` 文件夹在Geyser配置的文件夹
+        新建一个后缀名为 `.properties`的文件(如`zh_cn.properties`). 查看
+        [此页面](https://github.com/GeyserMC/languages/tree/master/texts) 添加翻译
 
-        You must restart Geyser for the changes to apply.
+        修改完重启
 
-- title: Questions not related to gameplay
+- title: 和游戏方面无关的问题
   items:
-    - title: What is the relationship between CubeCraft and Geyser?
+    - title: CubeCraft 和 Geyser 是什么关系？
       content: |
-        Redned started Geyser in July 2019. In May 2020, CubeCraft acquired the GeyserMC brand. This means that they govern the project (though at this time, they govern lightly). CubeCraft does not own the code of Geyser.
+        Redned 最早在 2019年7月 开始 Geyser 的开发。在 2020年5月，CubeCraft 收购了 Geyser，这意味着他们有时也会参与 Geyser 的开发，并赞助 Geyser 团队。但他们不拥有 Geyser 代码。
 
     - title: Does CubeCraft use Geyser?
       content: |
-        No
+        不
