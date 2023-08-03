@@ -9,4 +9,4 @@ permalink: /
 
 # GeyserMC Wiki
 
-欢迎浏览GeyserChineseWiki.译者为qscbm187531,本文档部分翻译取自 SuperiorMC 翻译的[GeyserWiki](https://geyser.superiormc.cn/)
+欢迎浏览GeyserChineseWiki.译者为 qscbm187531 & KisssStar,本文档部分翻译取自 SuperiorMC 翻译的[GeyserWiki](https://geyser.superiormc.cn/)
