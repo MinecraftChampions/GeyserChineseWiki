@@ -1,25 +1,112 @@
-- title: Documentation
-  url: docs
+- title: Geyser Documentation
+  url: "geyser/"
   links:
-    - title: "Getting Started"
-      url: "docs/getting-started"
+    - title: Setting up Geyser
+      url: "geyser/setup/"
       children:
-        - title: Features
-          url: "docs/getting-started#getting-started"
-        - title: Development
-          url: "docs/getting-started#development"
-        - title: Customization
-          url: "docs/getting-started#customization"
-    - title: Versioning
-      url: "docs/versioning"
-    - title: "About"
-      url: "about"
-    - title: "News"
-      url: "news"
-- title: "Extras"
-  url: "docs/extras"
+        - title: Supported Hosting Providers
+          url: "geyser/supported-hosting-providers/"
+        - title: Using Geyser with Consoles
+          url: "geyser/using-geyser-with-consoles/"
+        - title: Using playit.gg with Geyser
+          url: "geyser/playit-gg/"
+        - title: Creating a Startup Script
+          url: "geyser/creating-a-startup-script/"
+    - title: Common Issues
+      url: "geyser/common-issues/"
+      children:
+        - title: Fixing 'Unable to Connect to World'
+          url: "geyser/fixing-unable-to-connect-to-world/"
+    - title: Configuring Geyser
+      url: "geyser/understanding-the-config/"
+      children:
+        - title: Commands
+          url: "geyser/commands/"
+        - title: Geyser Command Line Arguments and System Properties
+          url: "geyser/geyser-command-line-arguments-and-system-properties/"
+    - title: FAQ
+      url: "geyser/faq/"
+      children:
+        - title: Anticheat Compatibility
+          url: "geyser/anticheat-compatibility/"
+        - title: Current Limitations
+          url: "geyser/current-limitations/"
+    - title: Custom items with Geyser
+      url: "geyser/custom-items/"
+      children:
+        - title: JSON mappings
+          url: "geyser/custom-items/#json-mappings"
+        - title: Geyser extensions
+          url: "geyser/custom-items/#geyser-extensions"
+        - title: Resource pack
+          url: "geyser/custom-items/#resource-pack"
+    - title: Geyser API
+      url: "geyser/api/"
+      children:
+        - title: Getting Started
+          url: "geyser/getting-started-with-the-api/"
+        - title: Overview
+          url: "geyser/api/#short-overview-of-the-api"
+        - title: Events
+          url: "geyser/events/"
+        - title: Forms and Cumulus
+          url: "geyser/forms/"
+    - title: Geyser Extensions
+      url: "geyser/extensions/"
+      children:
+        - title: Main class
+          url: "geyser/extensions/#creating-the-main-class"
+        - title: Creating Commands
+          url: "geyser/extensions/#creating-commands-with-geyser-extensions"
+    - title: Global API
+      url: "geyser/global-api/"
+
+- title: Floodgate Documentation
+  url: "floodgate/"
   links:
-    - title: Quizzes
-      url: "docs/extras/example-quiz"
-    - title: Tags Page
-      url: "tags"
+    - title: "Setup"
+      url: "floodgate/setup/"
+    - title: "Issues"
+      url: "floodgate/issues/"
+    - title: "FAQ"
+      url: "floodgate/faq/"
+    - title: "Features"
+      url: "floodgate/features/"
+      children:
+        - title: Whitelist command
+          url: "floodgate/features/#whitelist-command"
+        - title: "Commands"
+          url: "floodgate/commands/"
+        - title: Skin Uploading
+          url: "floodgate/features/#what-is-skin-uploading"
+    - title: "Floodgate API"
+      url: "floodgate/api/"
+      children:
+        - title: "FloodgatePlayer"
+          url: "floodgate/player/"
+        - title: "Forms and Cumulus"
+          url: "geyser/forms/"
+    - title: "Linking"
+      url: "floodgate/linking/"
+      children:
+        - title: Global Linking
+          url: "floodgate/linking/#what-is-global-linking"
+        - title: Local Linking
+          url: "floodgate/linking/#local-linking"
+- title: Other
+  url: "other/"
+  links:
+    - title: "GeyserOptionalPack"
+      url: "other/geyseroptionalpack/"
+    - title: "Hurricane"
+      url: "other/hurricane/"
+    - title: "GeyserConnect"
+      url: "other/geyserconnect/"
+    - title: "Community Geyser Projects"
+      url: "other/community-geyser-projects/"
+    - title: "Test Server"
+      url: "other/test-server/"
+    - title: "Developer Guide"
+      url: "other/developer-guide/"
+    - title: "Geyser Discord Bot Usage"
+      url: "other/discord-bot-usage/"
