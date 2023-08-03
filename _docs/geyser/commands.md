@@ -1,20 +1,20 @@
 ---
-title: Commands
+title: Geyser命令列表
 ---
 
-# Commands and Permissions
+# 命令 和 权限
 
-| Command | Permission | Description |
-|:---:|:---:|:---:|
-| `geyser help` <br> `geyser ?` | `geyser.command.help` | Shows help for all registered commands. |
-| `geyser advancements` | `geyser.command.advancements` | Open the Java advancements menu. |
-| `geyser dump` | `geyser.command.dump` | Dumps Geyser debug information for bug reports. |
-| `geyser list` | `geyser.command.list` | List all players connected through Geyser. |
-| `geyser offhand` | `geyser.command.offhand` | Puts an item in your offhand. |
-| `geyser reload` | `geyser.command.reload` | Reloads the Geyser configurations. Kicks all players when used! |
-| `geyser settings` | `geyser.command.settings` | Opens a settings menu allowing you to modify aspects of the world. |
-| `geyser shutdown` <br> `geyser stop` | `geyser.command.shutdown` | Shuts down Geyser.<br>*This command only works on Standalone.* |
-| `geyser statistics` | `geyser.command.statistics` | Open the Java statistics menu. |
-| `geyser version` | `geyser.command.version` | Shows the current Geyser version and checks for updates. |
+|                  命令                 |              权限             |         描述         |
+|:------------------------------------:|:-----------------------------:|:------------------:|
+|    `geyser help` <br> `geyser ?`     |     `geyser.command.help`     |       打开帮助页面       |
+|        `geyser advancements`         | `geyser.command.advancements` |     打开Java成就菜单     |
+|            `geyser dump`             |     `geyser.command.dump`     | 存储Geyser调试信息获取错误报告 |
+|            `geyser list`             |     `geyser.command.list`     | 获取通过Geyser连接的基岩版玩家 |
+|           `geyser offhand`           |   `geyser.command.offhand`    |      交换物品到副手       |
+|           `geyser reload`            |    `geyser.command.reload`    |  重载插件,并踢出所有基岩版玩家   |
+|          `geyser settings`           |   `geyser.command.settings`   |     打开当前世界设置菜单     |
+| `geyser shutdown` <br> `geyser stop` |   `geyser.command.shutdown`   |      关闭Geyser      |
+|         `geyser statistics`          |  `geyser.command.statistics`  |    打开Java信息统计菜单    |
+|           `geyser version`           |   `geyser.command.version`    |  显示Geyser版本并检查更新.  |
 
-For Floodgate commands, see [here](/floodgate/commands/).
+对于Floodgate的命令, 请转到 [Floodgate命令列表](/floodgate/commands/).
