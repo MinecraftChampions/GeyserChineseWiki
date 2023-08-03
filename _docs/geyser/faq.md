@@ -1,5 +1,5 @@
 ---
-title: FAQ
+title: 常见问题
 ---
 
 {% for section in site.data.faq %}
