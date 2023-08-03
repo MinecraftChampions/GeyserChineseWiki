@@ -2,7 +2,7 @@
 title: playit.gg 设置
 ---
 
-<div class="alert alert-danger" role="alert">
+<div class="alert alert-info" role="alert">
 	本页面是配置内网穿透的,国内软件同理
 </div>
 

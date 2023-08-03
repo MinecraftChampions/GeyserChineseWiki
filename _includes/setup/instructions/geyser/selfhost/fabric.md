@@ -1,3 +1,6 @@
+
+# 在Fabric服务端搭建Geyser
+
 <div class="alert alert-warning" role="alert">
 	Geyser-Fabric <b>只能运行</b> 在版本为 {{ site.data.versions.java }} 的 Fabric 服务端. <br>
     要想在更老的版本使用Geyser, 你可以在代理端上使用Geyser, 或者改用 Geyser 独立版. 
@@ -34,16 +37,12 @@
    如果你想希望你的服务器可以让其他玩家加入
    你有两种方法可以选择: <br>
 
-    - 开放端口(有公网ip): Open the Geyser port (e.g. 19132) on the UDP protocol in your router/modem, and in the Windows/Linux firewall.
-      After doing this, players can connect with your public IPv4 + port to your server. 
-      See [here](https://www.lifewire.com/how-to-port-forward-4163829) for a helpful guide. <br>
+    - 开放端口(有公网ip): 一定要开放UDP端口,关闭防火墙,保证能联通
 
-    - 内网穿透(无公网ip): Instead of opening a port (which might not be an option/if you do not want to expose your home ip), you can use
-      the playit.gg service to create a tunnel for you to route the traffic through. See our [playit.gg guide](/geyser/playit-gg).
-      Ngrok will not work since it is TCP-only. <br>
+    - 内网穿透(无公网ip): 使用类似playit.gg的网站
 
-5. Verify whether connections from other networks are possible by running `geyser connectiontest <ip>:<port>` in the console.
+5. 可以通过在控制台运行 `geyser connectiontest <ip>:<port>` 命令检验是否生效
 
 <div class="alert alert-info" role="alert">
-    To allow Bedrock Edition players to join your server without needing to log in to a paid Java Edition account, you can use <a href="/floodgate/setup/">Floodgate</a>.
+   要允许基岩版不登录正版Java账号可以加入服务器的话可以使用 <a href="/floodgate/setup/">Floodgate</a>.
 </div>

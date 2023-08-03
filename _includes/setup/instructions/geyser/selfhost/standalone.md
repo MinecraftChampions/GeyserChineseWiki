@@ -1,101 +1,93 @@
-# Geyser-Standalone Setup
+# 搭建Geyser独立版
 
 <div class="alert alert-info" role="alert">
-   You need to have Java 16 or higher installed to run Geyser. To run Geyser Standalone on Android or iOS, see the bottom of this page.
+   你需要Java16及更高版本才能使用. 如果你想在Android设备或者IOS设备使用,请下滑到底部
 </div>
 
-1. Download Geyser Standalone from [here](https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/standalone).
-2. Create a new folder for Geyser, and drop the jar in there.
-3. Start Geyser Standalone:
-   - **GUI** (Recommended): <br>
-   Double-click the jar file and all the necessary files for Geyser will be created.
-   - Or use the **console setup**: <br>
-   Create a new bat or startup script, similar to the one you'd use for a Spigot/Paper server, and take a look at [this](/geyser/creating-a-startup-script/) page for what to put into it. <br>
-   Run the startup script/bat, and all the necessary files for Geyser will be created.
+1. 从 [下载页面中](https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/standalone) 下载Geyser
+2. 新建一个目录,并把Geyser丢进去
+3. 启动Geyser:
+   - **GUI页面** (推荐): <br>
+   双击Geyser文件
+   - 使用 **控制台**: <br>
+   使用启动脚本启动,具体请参阅[创建Geyser独立版启动脚本](/geyser/creating-a-startup-script/)  <br>
 
-4. Open your Geyser config (`config.yml`), and find the following:
+4. 打开Geyser设置文件 (`config.yml`), 并找到下面这段:
 
    ```yaml
    bedrock: 
-      # The IP address that will listen for connections. 
-      # Generally, you should only uncomment and change this if you want to limit what IPs can connect to your server. 
-      #address: 0.0.0.0 
-
-      # The port that will listen for connections. This is the port that Bedrock players will use to connect to your server.
-      port: 19132 
+      # Geyser开启的地址,正常情况下,不做修改
+      #address: 0.0.0.0
+   
+      # Geyser转发的端口
+      port: 19132
    ```
-   The `port` is the port Bedrock players will enter to connect to the server. <br>
-   Uncommenting and changing `address` here is only needed if you need to limit connections to a specific IP address.
+   `port`是基岩版进入服务器的端口
+   当你要限制进入Geyser的ip才对`address`做出修改
    <br>
 
-   To configure which Java Edition server Geyser Standalone will send players to, find the remote section:
+   需要设置Geyser进入哪个服务器,请继续修改
    ```yaml
    remote:
-      # The IP address of the remote (Java Edition) server
-      # If it is "auto", for standalone version the remote address will be set to 127.0.0.1.
+      # Geyser监听的ip地址
+      # 当为"auto"时,默认为本机地址.
       address: auto
 
-      # The port of the remote (Java Edition) server
+      # 监听的端口
       port: 25565
       
-      # Authentication type. Can be offline, online, or floodgate (see https://github.com/GeyserMC/Geyser/wiki/Floodgate).
+      # 登录方式,有offline,online,floodgate (详见 https://github.com/GeyserMC/Geyser/wiki/Floodgate).
       auth-type: online
    ```
-   Here, change `address` to the Java server's address, or to `auto` if the server is on the same machine as Geyser-Standalone. 
-Then, change `port` to the Java server's port. If you have set up Floodgate on the remote Java server, you can set auth-type to "floodgate" - otherwise, 
-set it to either `online` for an online mode server, or `offline` for an offline mode server. To install and set up Floodgate with a Standalone server, see [here](/floodgate/setup). <br>
+   更改`address`设置Geyser监听的ip
+   然后, 设置 `port` 为Java服务器的端口. 如果服务器上有Floodgate插件, 你可以设置 `auth-type` 为 "floodgate" - 如果没有, 
+   当服务器有正版验证时设置为 `online`, 否则设置为 `offline` . 要安装Floodgate,详见 [搭建Floodgate](/floodgate/setup). <br>
    
-5. Connecting to your server
+5. 连接至服务器
    <br> <br>
-   **Connecting locally in the same network** <br>
-   On the same device as the server, you can connect using `localhost`, or `127.0.0.1` as the address.
-   Do note: When hosting and playing on the same Windows device, you will need the [loopback fix](/geyser/fixing-unable-to-connect-to-world/#Using-Geyser-on-the-same-computer).
-   Other devices in the same local network can use your local IPv4 to connect - it starts with `10.` or `192.168.`.
-   Alternatively, open Minecraft: Bedrock edition, and join the LAN-Server in the **Friends** tab.
+   **在局域网中连接** <br>
+   在同一个设备中可以使用 `localhost`, 或者 `127.0.0.1` 作为域名加入
+   如果出现问题,请访问 [修复无法连接至世界](/geyser/fixing-unable-to-connect-to-world/#Using-Geyser-on-the-same-computer).
+   如果在同一局域网中不同设备你需要通过局域网ipv4进行连接 - 一般以 `10.` 或 `192.168.` 开头.
    <br> <br>
-   **Connecting from a different network**<br>
-   You will need to expose the port Geyser runs on to the Internet if you want players from outside your network to join.
-   To achieve that, you have two options: <br>
+   **在公网中连接**<br>
+   如果你想希望你的服务器可以让其他玩家加入
+   你有两种方法可以选择: <br>
 
-    - Portforwarding: Open the Geyser port (e.g. 19132) on the UDP protocol in your router/modem, and in the Windows/Linux firewall.
-      After doing this, players can connect with your public IPv4 + port to your server.
-      See [here](https://www.lifewire.com/how-to-port-forward-4163829) for a helpful guide. <br>
+   - 开放端口(有公网ip): 一定要开放UDP端口,关闭防火墙,保证能联通
 
-    - playit.gg: Instead of opening a port (which might not be an option/if you do not want to expose your home ip), you can use
-      the playit.gg service to create a tunnel for you to route the traffic through. See our [playit.gg guide](/geyser/playit-gg).
-      Ngrok will not work since it is TCP-only. <br>
+   - 内网穿透(无公网ip): 使用类似playit.gg的网站
 
-6. Verify whether connections from other networks are possible by running `geyser connectiontest <ip>:<port>` in the console.
+6. 可以通过在控制台运行 `geyser connectiontest <ip>:<port>` 命令检验是否生效
 
-# Running Geyser-Standalone on Android/iOS
+# 运行Geyser在IOS/Android
 
 <div class="alert alert-warning" role="alert">
-   Applications such as Termux on Android are capable of running Geyser, but this largely depends on how powerful your Android device is. Please do so at your own risk.
+      Android上的Termux等软件运行Geyser会在很大程度上受到设备性能的设置,请自行承担后果
 </div>
 
 ## Termux (Android)
-1. Download and install [Termux](https://termux.com/)
-2. Run `pkg install openjdk-17`
-3. Run `wget https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/standalone/build/libs/Geyser-Standalone.jar`
-4. Run `java -jar Geyser-Standalone.jar`
+1. 下载并安装 [Termux](https://termux.com/)
+2. 运行 `pkg install openjdk-17`
+3. 运行 `wget https://ci.opencollab.dev/job/GeyserMC/job/Geyser/job/master/lastSuccessfulBuild/artifact/bootstrap/standalone/build/libs/Geyser-Standalone.jar`
+4. 运行 `java -jar Geyser-Standalone.jar`
 
-OR
+或者
 
-We have an automated setup script for clean Termux installs, which might not work for all users. If the manual guide above does not work, try this.
-Run this to start the download/install:
+Geyser有一个自动安装的脚本,运行以下命令以开始下载/安装
 ```
 curl https://gist.githubusercontent.com/rtm516/e3e07d6595ee41e05a38b03c0f4d7a80/raw/install.sh | bash
 ```
 
 ## NewTerm 2 (iOS)
-**Note:** A jailbreak is required. You can find what jailbreak to use for your device [here](https://docs.google.com/spreadsheets/d/11DABHIIqwYQKj1L83AK9ywk_hYMjEkcaxpIg6phbTf0/edit?usp=sharing).
-1. Install [Filza File Manager](http://cydia.saurik.com/package/com.tigisoftware.filza/).
-2. Install [NewTerm 2](https://chariz.com/get/newterm).
-3. Download PojavLauncher's Java 16 JRE for iOS and install it using Filza [here](https://github.com/PojavLauncherTeam/PojavLauncher_iOS/releases/download/v16-openjdk/openjdk-16-jre_16.0.0+git20201217.8383f41-2_iphoneos-arm.deb).
-4. Download this package containing modified java commands, and install it using Filza [here](https://cdn.discordapp.com/attachments/558829512633090048/834014323755319306/com.letschill.java_0.1_iphoneos-arm.deb) (Note: Not an official GeyserMC project, install at your own risk).
-5. Open NewTerm 2 and run `wget https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/standalone`
-6. Run `java -jar Geyser-Standalone.jar`.
-7. Geyser should show up in the Friends tab inside Minecraft.
+**注意:** 你需要事先进行越狱
+1. 安装 [Filza File Manager](http://cydia.saurik.com/package/com.tigisoftware.filza/).
+2. 安装 [NewTerm 2](https://chariz.com/get/newterm).
+3. 下载 [这里](https://github.com/PojavLauncherTeam/PojavLauncher_iOS/releases/download/v16-openjdk/openjdk-16-jre_16.0.0+git20201217.8383f41-2_iphoneos-arm.deb) 的 jre16(IOS版).
+4. 下载 [这里](https://cdn.discordapp.com/attachments/558829512633090048/834014323755319306/com.letschill.java_0.1_iphoneos-arm.deb) 的 修改后的 java 指令集 并通过 Filza 进行安装.
+5. 打开 NewTerm 2 并运行 `wget https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/standalone`
+6. 运行 `java -jar Geyser-Standalone.jar`.
+7. 成功
 
-**Note:**
-Due to the iOS environment, if your device has low specs, iOS might end up killing NewTerm 2 while you're playing, stopping the server. There is no fix for that because of how iOS works.
+**注意:**
+在某些时候,IOS可能会杀死进程.如果遇到错误的话,可以运行 su 然后输入root密码(默认是 alpine)获得 root 权限.再开启Geyser,应该就能成功运行.

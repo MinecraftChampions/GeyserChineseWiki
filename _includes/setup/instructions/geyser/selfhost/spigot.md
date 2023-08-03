@@ -1,51 +1,48 @@
 
-# Paper / Spigot setup - self-hosting
+# 在Spigot系服务端搭建Geyser
 
 <div class="alert alert-info" role="alert">
-    If your server is not running {{ site.data.versions.java }}, you will need to install <a href="https://www.spigotmc.org/resources/viaversion.19254/">ViaVersion</a>.
-    See also our <a href="/geyser/faq/#what-server-versions-does-geyser-support">FAQ article</a> on supported versions.
+    如果你的服务器的版本不是 {{ site.data.versions.java }}, 请使用 <a href="https://www.spigotmc.org/resources/viaversion.19254/">ViaVersion</a>.
+    另请查看有关于Geyser支持版本的 <a href="/geyser/faq/#what-server-versions-does-geyser-support">常见问题页面</a>.
 </div>
 
-1. Download the plugin from [the download page](https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot).
-2. Place the Geyser-Spigot.jar in the `plugins` folder, and restart the server.
-3. Open your Geyser config, located in `/plugins/Geyser-Spigot/config.yml`, and find the following:
+1. 从 [下载页面中](https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot) 下载Geyser.
+2. 把Geyser放到`plugins`目录,最后重启服务器
+3. 编辑位于 `/plugins/Geyser-spigot/config.yml` 的配置文件, 找到以下内容:
 
     ```yaml
     bedrock: 
-        # The IP address that will listen for connections. 
-        # Generally, you should only uncomment and change this if you want to limit what IPs can connect to your server. 
-        #address: 0.0.0.0 
+        # Geyser开启的地址,正常情况下,不做修改
+        #address: 0.0.0.0
 
-        # The port that will listen for connections. This is the port that Bedrock players will use to connect to your server.
-        port: 19132 
-    ```
-    The vital part is the port. This is the port that Bedrock players will use to connect to your server!
-    If you enable `clone-remote-port`, the port will be overridden and the Java port is used.
-    Since you are self-hosting, you can choose the port freely - the default port is 19132. <br>
-    **Important**: Other services/plugins that rely on ports with UDP, such as Voice Chats or Query, cannot share the port with Geyser.
-   <br>
+        # Geyser转发的端口
+        port: 19132
 
-4. Connecting to your server
+        # 服务器每次开启时,Geyser 所开启的端口和 Java版服务器是否保持一致.需要注意的是,Geyser独立版无法使用此选项
+        clone-remote-port: false
+    ``` 
+   最重要的部分就是Geyser转发的端口这个设置,基岩版玩家将通过这个端口加入服务器
+   部分服务商会要求修改部分设置,比如修改端口,如果需要的话还可以设置 clone-remote-port 和 address.
+   启用了 `clone-remote-port`后,Geyser转发的端口会被替换为 Java 的端口！
+   重要提示：其他依赖 UDP 端口的服务或插件（如语音聊天或查询功能）不能和 Geyser 共用同一个端口.
+
+4. 连接至服务器
    <br> <br>
-    **Connecting locally in the same network** <br>
-    On the same device as the server, you can connect using `localhost`, or `127.0.0.1` as the address.
-    Do note: When hosting and playing on the same Windows device, you will need the [loopback fix](/geyser/fixing-unable-to-connect-to-world/#Using-Geyser-on-the-same-computer).
-    Other devices in the same local network can use your local IPv4 to connect - it starts with `10.` or `192.168.`.
+   **在局域网中连接** <br>
+   在同一个设备中可以使用 `localhost`, 或者 `127.0.0.1` 作为域名加入
+   如果出现问题,请访问 [修复无法连接至世界](/geyser/fixing-unable-to-connect-to-world/#Using-Geyser-on-the-same-computer).
+   如果在同一局域网中不同设备你需要通过局域网ipv4进行连接 - 一般以 `10.` 或 `192.168.` 开头.
    <br> <br>
-    **Connecting from a different network**<br>
-    You will need to expose the port Geyser runs on to the Internet if you want players from outside your network to join.
-    To achieve that, you have two options: <br>
+   **在公网中连接**<br>
+   如果你想希望你的服务器可以让其他玩家加入
+   你有两种方法可以选择: <br>
 
-    - Portforwarding: Open the Geyser port (e.g. 19132) on the UDP protocol in your router/modem, and in the Windows/Linux firewall.
-   After doing this, players can connect with your public IPv4 + port to your server.
-   See [here](https://www.lifewire.com/how-to-port-forward-4163829) for a helpful guide. <br>
+    - 开放端口(有公网ip): 一定要开放UDP端口,关闭防火墙,保证能联通
 
-    - playit.gg: Instead of opening a port (which might not be an option/if you do not want to expose your home ip), you can use
-   the playit.gg service to create a tunnel for you to route the traffic through. See our [playit.gg guide](/geyser/playit-gg).
-   Ngrok will not work since it is TCP-only. <br>
+    - 内网穿透(无公网ip): 使用类似playit.gg的网站
 
-5. Verify whether connections from other networks are possible by running `geyser connectiontest <ip>:<port>` in the console.
+5. 可以通过在控制台运行 `geyser connectiontest <ip>:<port>` 命令检验是否生效
 
 <div class="alert alert-info" role="alert">
-    To allow Bedrock Edition players to join your server without needing to log in to a paid Java Edition account, you can use <a href="/floodgate/setup/">Floodgate</a>.
+   要允许基岩版不登录正版Java账号可以加入服务器的话可以使用 <a href="/floodgate/setup/">Floodgate</a>.
 </div>
