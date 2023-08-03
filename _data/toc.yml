@@ -1,74 +1,74 @@
-- title: Geyser Documentation
+- title: Geyser中文文档
   url: "geyser/"
   links:
-    - title: Setting up Geyser
+    - title: 搭建Geyser
       url: "geyser/setup/"
       children:
-        - title: Supported Hosting Providers
+        - title: 支持Geyser的 插件/服务商 列表
           url: "geyser/supported-hosting-providers/"
-        - title: Using Geyser with Consoles
+        - title: 在游戏主机上是使用Geyser
           url: "geyser/using-geyser-with-consoles/"
-        - title: Using playit.gg with Geyser
+        - title: playit.gg 设置(内网穿透)
           url: "geyser/playit-gg/"
-        - title: Creating a Startup Script
+        - title: 创建Geyser独立版启动脚本
           url: "geyser/creating-a-startup-script/"
-    - title: Common Issues
+    - title: 常见异常
       url: "geyser/common-issues/"
       children:
-        - title: Fixing 'Unable to Connect to World'
+        - title: 修复 '无法连接至世界'
           url: "geyser/fixing-unable-to-connect-to-world/"
-    - title: Configuring Geyser
+    - title: 配置Geyser
       url: "geyser/understanding-the-config/"
       children:
-        - title: Commands
+        - title: Geyser命令列表
           url: "geyser/commands/"
-        - title: Geyser Command Line Arguments and System Properties
+        - title: Geyser命令行参数
           url: "geyser/geyser-command-line-arguments-and-system-properties/"
-    - title: FAQ
+    - title: 常见问题
       url: "geyser/faq/"
       children:
-        - title: Anticheat Compatibility
+        - title: 反作弊兼容
           url: "geyser/anticheat-compatibility/"
-        - title: Current Limitations
+        - title: 目前限制
           url: "geyser/current-limitations/"
-    - title: Custom items with Geyser
+    - title: 自定义物品
       url: "geyser/custom-items/"
       children:
-        - title: JSON mappings
+        - title: JSON映射
           url: "geyser/custom-items/#json-mappings"
-        - title: Geyser extensions
+        - title: Geyser扩展
           url: "geyser/custom-items/#geyser-extensions"
-        - title: Resource pack
+        - title: Resource资源包
           url: "geyser/custom-items/#resource-pack"
     - title: Geyser API
       url: "geyser/api/"
       children:
-        - title: Getting Started
+        - title: 开始
           url: "geyser/getting-started-with-the-api/"
-        - title: Overview
+        - title: 概述
           url: "geyser/api/#short-overview-of-the-api"
-        - title: Events
+        - title: 事件
           url: "geyser/events/"
-        - title: Forms and Cumulus
+        - title: 表单
           url: "geyser/forms/"
-    - title: Geyser Extensions
+    - title: Geyser 扩展
       url: "geyser/extensions/"
       children:
-        - title: Main class
+        - title: 主类
           url: "geyser/extensions/#creating-the-main-class"
-        - title: Creating Commands
+        - title: 注册命令
           url: "geyser/extensions/#creating-commands-with-geyser-extensions"
-    - title: Global API
+    - title: 全局API
       url: "geyser/global-api/"
 
-- title: Floodgate Documentation
+- title: Floodgate中文文档
   url: "floodgate/"
   links:
-    - title: "Setup"
+    - title: "打架呢"
       url: "floodgate/setup/"
-    - title: "Issues"
+    - title: "常见异常"
       url: "floodgate/issues/"
-    - title: "FAQ"
+    - title: "常见问题"
       url: "floodgate/faq/"
     - title: "Features"
       url: "floodgate/features/"
