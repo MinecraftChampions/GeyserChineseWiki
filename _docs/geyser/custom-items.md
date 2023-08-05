@@ -108,7 +108,7 @@ public void onGeyserPreInitializeEvent(GeyserDefineCustomItemsEvent event) {
 }
 ```
 
-### 用Geyser定义非原版物品
+### 用GeyserApi定义非原版物品
 
 1. 首先新建一个`NonVanillaCustomItemData`:
 ```java

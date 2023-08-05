@@ -35,18 +35,18 @@
       url: "geyser/custom-items/"
       children:
         - title: JSON映射
-          url: "geyser/custom-items/#json-mappings"
+          url: "geyser/custom-items/#JSON 映射"
         - title: Geyser扩展
-          url: "geyser/custom-items/#geyser-extensions"
+          url: "geyser/custom-items/#Geyser扩展"
         - title: 资源包
-          url: "geyser/custom-items/#resource-pack"
+          url: "geyser/custom-items/#资源包"
     - title: Geyser API
       url: "geyser/api/"
       children:
         - title: 开始
           url: "geyser/getting-started-with-the-api/"
         - title: 概述
-          url: "geyser/api/#short-overview-of-the-api"
+          url: "geyser/api/#Geyser API的简要概述"
         - title: 事件
           url: "geyser/events/"
         - title: 表单

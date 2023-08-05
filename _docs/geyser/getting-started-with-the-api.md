@@ -48,16 +48,16 @@ dependencies {
 GeyserConnection connection = GeyserApi.api().connectionByUuid(uuid);
 ```
 
-`connection` can be null if such a player does not exist on Geyser.
+`connection` 当没有这个玩家时为null
 
-`GeyserApi.api()` may be null until after the Geyser plugin enables.
+`GeyserApi.api()` 当Geyser没有加载时为null
 
-For more information on the Geyser API, see [here](/geyser/api/).
+更多信息详见 [GeyserApi](/geyser/api/).
 
-## Using Floodgate
-This page has a very simple primer for the Floodgate API. For a full breakdown, see [here](/floodgate/api/).
+## 使用 Floodgate
+一些内容包含了Floodgate入门, 详见 [FloodgateApi](/floodgate/api/).
 
-Add Floodgate's API as a dependency:
+首先添加依赖:
 
 **Maven**
 ```xml
@@ -76,10 +76,10 @@ dependencies {
 }
 ```
 
-Get the Floodgate API using:
+获取FloodgateApi实例
 ```java
 FloodgateApi api = FloodgateApi.getInstance();
 api.isFloodgatePlayer(uuid);
 ```
 
-For more information on the Floodgate API, see [here](/floodgate/api/).
+详见 [FloodgateApi](/floodgate/api/).
