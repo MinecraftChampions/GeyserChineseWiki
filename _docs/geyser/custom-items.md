@@ -1,15 +1,16 @@
 ---
-title: Custom items with Geyser
+title: 自定义物品
 ---
 
-# Custom items with Geyser
+# 使用Geyser自定义物品
 
-To setup custom items in geyser, you have to choose how you are going to register your items. The easiest is [using a json file](#json-mappings) but you can also [use a Geyser extension](#geyser-extensions).
+想要自定义物品(插件端通过`custom_model_data`设置的资源包,一些特定的物品),你必须学会注册它,最简单的方法就是通过[JSON文件映射](#geyser-extensions),或者是使用Java写Geyser的[扩展插件](#geyser-extensions)
+需要注意的是:如果你想扩展非原版物品只能使用Geyser扩展
 
-## JSON mappings
+## JSON 映射
 
-1. Start your server, and you should have a folder called `custom_mappings` that is created. That would be with the folder of `Geyser.jar` file for standalone and inside your Geyser data folder for a plugin.
-2. Create a `.json` file, it can be any name you like and as many files as you like. You don't need to make one file per item. Here is the structure of the file:
+1. 首先你应该打开Geyser的配置文件夹,新建 `custom_mappings` 文件夹来存储JSON文件
+2. 创建一个后缀名为`.json`的JSON文件,名字无所谓,数量也无所谓,Geyser会自动遍历,它的结构应该如下所示
 ```json
 {
     "format_version": 1,
@@ -18,30 +19,30 @@ To setup custom items in geyser, you have to choose how you are going to registe
     }
 }
 ```
-3. Inside the `items` entry, you can add your java item to extend:
+3. 要想创建Java物品的扩展,首先你应该在 `items` 项中新建一个键为`minecraft:JAVA_ITEM`的空数组
 
 ```json
 "minecraft:JAVA_ITEM": [
 
 ]
 ```
-4. Inside this java item, goes an array of all your custom items.
+4. 这个数组里存储这JSON对象,每个JSON对象代表一个物品的扩展
 
 ```json
 {
     "name": "my_item"
 }
 ```
-5. Then, you need to set one or more item options or registrations, they can be stacked, so that all of the specified types need to match.
-    * Custom model data: `custom_model_data` (int)
-    * Damage predicate: `damage_predicate` (int) This is a fractional value of damage/max damage and not a number between 0 and 1.
-    * Unbreakable: `unbreakable` (boolean)
-6. You also have some extra modifiers that you can set to further customise your item. **Note that the following modifiers are NOT required.**
-    * `display_name` (string) default: item name
-    * `icon` (string) default: item name
-    * `allow_offhand` (boolean) default: false
-    * `texture_size` (int) default: 16
-    * `render_offsets` (object) It works as follows. Note that all the sub-objects are optional, except x, y and z. You can have for example only a main hand with a position, and noting else. default: no render offset
+5. 这个JSON对象里还可以存储别的属性来匹配(以下属性必须要全部匹配)
+    * 自定义模型数据: `custom_model_data` (int)
+    * 伤害谓词: `damage_predicate` (int) 这里是物品的伤害
+    * 不可破坏: `unbreakable` (boolean)
+6. 同时,你这可以添加额外的设置来设置这个物品在基岩版端如何显示. **不是必须**
+    * 显示名: `display_name` (string) 默认值: 物品名字
+    * 图标: `icon` (string) 默认值: 物品名字
+    * 可以在副手: `allow_offhand` (boolean) 默认值: false
+    * 图片分辨率: `texture_size` (int) 默认值: 16
+    * 渲染偏移: `render_offsets` (object) 配置示例如下(x,y,z必须,其他可选)
     ```json
     "render_offsets": {
         "main_hand": {
@@ -72,34 +73,34 @@ To setup custom items in geyser, you have to choose how you are going to registe
     }
     ```
 
-## Geyser extensions
+## Geyser扩展
 
-### Extending a vanilla item
+### 扩展原版物品
 
-1. Create your custom item options or registrations, to which you can add any of the following. They can be stacked, so that all of the specified types need to match, but you **do NOT need all of them.**
+1. 首先你需要创建一个`CustomItemOptions`,这里定义了要匹配自定义物品的一些修饰符
 ```java
 CustomItemOptions itemOptions = CustomItemOptions.builder()
         .customModelData(1)
-        .damagePredicate(1) //This is a fractional value of damage/max damage and not a number between 0 and 1.
+        .damagePredicate(1) //伤害
         .unbreakable(true)
         .build();
 ```
-2. Create your custom item, and store it somewhere:
+2. 然后你可以新建一个`CustomItemData`,他定义了这个物品的名字和其他一些修饰符
 ```java
 CustomItemData data = CustomItemData.builder()
         .name("my_item")
         .customItemOptions(itemOptions)
         .build();
 ```
-3. You have some modifiers that you can set to further customise your item. **Note that the following modifiers are NOT required.**
+3. 你可以添加以下这些修饰符
 ```java
-.displayName("displayName"); //Default: item name
-.icon("my_icon"); //Default: item name
-.allowOffhand(false); //Default: false
-.textureSize(16); //Default: 16
-.renderOffsets(new CustomRenderOffsets(...)); //Default: no render offset
+.displayName("displayName"); //默认值: 物品名
+.icon("my_icon"); //默认值: 物品名
+.allowOffhand(false); //默认值: false
+.textureSize(16); //默认值: 16
+.renderOffsets(new CustomRenderOffsets(...)); //默认不渲染偏移
 ```
-4. Then, in your pre init event, you can register your item:
+4. 然后,在Geyser的初始化事件中注册自定义物品
 ```java
 @Subscribe
 public void onGeyserPreInitializeEvent(GeyserDefineCustomItemsEvent event) {
@@ -107,17 +108,17 @@ public void onGeyserPreInitializeEvent(GeyserDefineCustomItemsEvent event) {
 }
 ```
 
-### Non vanilla (modded) items with Geyser extensions (for example to use with Fabric)
+### 用Geyser定义非原版物品
 
-1. Create your item data:
+1. 首先新建一个`NonVanillaCustomItemData`:
 ```java
 NonVanillaCustomItemData data = NonVanillaCustomItemData.builder()
         .name("my_item")
         .identifier("my_mod:my_item")
         .javaId(1)
 ```
-2. There are many other options you can set to match the behavior that you require for your item. You can see them [here](https://github.com/GeyserMC/Geyser/blob/master/api/geyser/src/main/java/org/geysermc/geyser/api/item/custom/NonVanillaCustomItemData.java)
-3. Register your item in the GeyserDefineCustomItems event:
+2. `NonVanillaCustomItemData`可以有许多不同的修饰符,详见 [此页面](https://github.com/GeyserMC/Geyser/blob/master/api/geyser/src/main/java/org/geysermc/geyser/item/custom/NonVanillaCustomItemData.java)
+3. 然后,在Geyser的初始化事件中注册自定义物品：
 ```java
 @Subscribe
 public void onGeyserDefineCustomItemsEvent(GeyserDefineCustomItemsEvent event) {
@@ -125,11 +126,11 @@ public void onGeyserDefineCustomItemsEvent(GeyserDefineCustomItemsEvent event) {
 }
 ```
 
-## Resource pack
+## 资源包
 
-1. Setup a basic bedrock resource pack. If you need help, you can find it [here](https://wiki.bedrock.dev/guide/project-setup.html#rp-manifest).
-2. Make a `textures` folder.
-3. Create `item_texture.json` in the `textures`, and put this in it:
+1. 新建一个基岩版资源包,教程可以看 [这里](https://wiki.bedrock.dev/guide/project-setup.html#rp-manifest) 或者自行上网搜索.
+2. 新建 `textures` 目录.
+3. 在 `textures` 文件夹下创建 `item_texture.json` 文件, 里面内容如下:
 
 ```json
 {
@@ -140,7 +141,7 @@ public void onGeyserDefineCustomItemsEvent(GeyserDefineCustomItemsEvent event) {
   }
 }
 ```
-4. Inside texture data, you can add your items. The texture name and path must match the name that you set in your mappings.
+4. 在`texture_data`项填上如下内容,JSON对象的键就是自定义物品的名称
 
 ```json
 "my_item": {
@@ -149,4 +150,4 @@ public void onGeyserDefineCustomItemsEvent(GeyserDefineCustomItemsEvent event) {
     ]
 }
 ```
-5. Then you need to put your textures inside the `textures/items`. Make sure to have it match the texture path that you specified in `item_texture.json`!
+5. 然后把图片丢到 `textures/items`. 并确保路劲与 `item_texture.json` 设置的一样!

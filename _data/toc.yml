@@ -38,7 +38,7 @@
           url: "geyser/custom-items/#json-mappings"
         - title: Geyser扩展
           url: "geyser/custom-items/#geyser-extensions"
-        - title: Resource资源包
+        - title: 资源包
           url: "geyser/custom-items/#resource-pack"
     - title: Geyser API
       url: "geyser/api/"
@@ -70,30 +70,30 @@
       url: "floodgate/issues/"
     - title: "常见问题"
       url: "floodgate/faq/"
-    - title: "Features"
+    - title: "功能"
       url: "floodgate/features/"
       children:
-        - title: Whitelist command
+        - title: 白名单命令
           url: "floodgate/features/#whitelist-command"
-        - title: "Commands"
+        - title: "命令"
           url: "floodgate/commands/"
-        - title: Skin Uploading
+        - title: 皮肤上传
           url: "floodgate/features/#what-is-skin-uploading"
     - title: "Floodgate API"
       url: "floodgate/api/"
       children:
-        - title: "FloodgatePlayer"
+        - title: "Floodgate玩家"
           url: "floodgate/player/"
-        - title: "Forms and Cumulus"
+        - title: "Cumulus表单功能(基岩版UI)"
           url: "geyser/forms/"
-    - title: "Linking"
+    - title: "连接"
       url: "floodgate/linking/"
       children:
-        - title: Global Linking
+        - title: 全局连接
           url: "floodgate/linking/#what-is-global-linking"
-        - title: Local Linking
+        - title: 本地连接
           url: "floodgate/linking/#local-linking"
-- title: Other
+- title: 其他
   url: "other/"
   links:
     - title: "GeyserOptionalPack"
@@ -102,11 +102,11 @@
       url: "other/hurricane/"
     - title: "GeyserConnect"
       url: "other/geyserconnect/"
-    - title: "Community Geyser Projects"
+    - title: "社区Geyser项目"
       url: "other/community-geyser-projects/"
-    - title: "Test Server"
+    - title: "测试服务器"
       url: "other/test-server/"
-    - title: "Developer Guide"
+    - title: "开发指南"
       url: "other/developer-guide/"
-    - title: "Geyser Discord Bot Usage"
+    - title: "Geyser的Discord功能机器人"
       url: "other/discord-bot-usage/"
