@@ -117,7 +117,7 @@ NonVanillaCustomItemData data = NonVanillaCustomItemData.builder()
         .identifier("my_mod:my_item")
         .javaId(1)
 ```
-2. `NonVanillaCustomItemData`可以有许多不同的修饰符,详见 [此页面](https://github.com/GeyserMC/Geyser/blob/master/api/geyser/src/main/java/org/geysermc/geyser/item/custom/NonVanillaCustomItemData.java)
+2. `NonVanillaCustomItemData`可以有许多不同的修饰符,详见 [此页面](https://github.com/GeyserMC/Geyser/blob/master/api/src/main/java/org/geysermc/geyser/api/item/custom/NonVanillaCustomItemData.java)
 3. 然后,在Geyser的初始化事件中注册自定义物品：
 ```java
 @Subscribe
