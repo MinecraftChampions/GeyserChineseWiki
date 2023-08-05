@@ -1,9 +1,9 @@
 ---
-title: Geyser Events
+title: Geyser 事件列表
 ---
 
-# Geyser Events
-Geyser has a powerful event system that allows you to listen to events that are sent by Geyser. Events are at the heart of Geyser Extensions, and can be used by plugins and mods as well.
+# Geyser 事件列表
+Geyser拥有一个强大的事件系统
 
 Full documentation can be found [here](https://github.com/GeyserMC/Geyser/tree/master/api/src/main/java/org/geysermc/geyser/api/event).
 
@@ -21,7 +21,7 @@ Events are categorized into the following categories:
 
 To see all the events in the respective categories, click on the links above.
 
-## Usage Examples:
+## 用法:
 
 Each method that you want to subscribe to an event needs to be annotated with the @Subscribe annotation (from the GeyserMC events package).
 ```java
@@ -61,7 +61,7 @@ public class ExampleMod implements ModInitializer, EventRegistrar {
 
 Therefore, we register it in the server starting event provided by the Fabric API.
 
-**Paper/Spigot plugin example:**
+**Paper/Spigot 插件 示例:**
 
 1. In your plugin.yml, add the following lines:
 ```yaml
