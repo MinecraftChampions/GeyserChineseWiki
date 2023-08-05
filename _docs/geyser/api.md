@@ -10,7 +10,7 @@ title: Geyser API
 - Geyser扩展
 
 ### 如何使用 Geyser API
-看 [这里] (/geyser/getting-started-with-the-api) 学会如何在你的项目中添加依赖
+看 [这里](/geyser/getting-started-with-the-api) 学会如何在你的项目中添加依赖
 
 ### 文档
 
@@ -43,7 +43,7 @@ GeyserApi.api();
 
 `GeyserApi#connectionByUuid(UUID)`<br>
 获取**在线**的基岩版玩家的 [Connection实例](https://github.com/GeyserMC/api/blob/master/base/src/main/java/org/geysermc/api/connection/Connection.java)<br>
-如果传入的参数不是基岩版玩家的UUID，将会返回null
+如果传入的参数不是基岩版玩家的UUID,将会返回null
 
 <div class="alert alert-info" role="alert">
     以上两个方法可以在登录前的的事件就调用

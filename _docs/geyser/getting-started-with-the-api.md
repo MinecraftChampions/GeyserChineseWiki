@@ -1,8 +1,8 @@
 ---
-title: Getting Started with the API
+title: 开始
 ---
 
-To start, add the Open Collaboration repository to your project:
+首先你需要添加指定仓库到你的项目
 
 **Maven**
 ```xml
@@ -11,7 +11,6 @@ To start, add the Open Collaboration repository to your project:
     <url>https://repo.opencollab.dev/main/</url>
 </repository>
 ```
-The "main" repository contains both release and snapshot versions.
 
 **Gradle**
 ```groovy
@@ -22,9 +21,9 @@ repositories {
 }
 ```
 
-## Using Geyser
+## 使用 Geyser
 
-Add Geyser's API codebase as a dependency:
+添加Geyser依赖
 
 **Maven**
 ```xml
@@ -43,7 +42,7 @@ dependencies {
 }
 ```
 
-To get a Geyser player, or check if a player is from Bedrock:
+要想获取基岩版玩家连接的实例，可以使用:
 
 ```java
 GeyserConnection connection = GeyserApi.api().connectionByUuid(uuid);
