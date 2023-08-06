@@ -1,30 +1,33 @@
 ---
-title: Forms and Cumulus
+title: Cumulus表单
 ---
 
-# What is Cumulus?
+# 什么是 Cumulus?
 
-Bedrock Edition has a cool exclusive feature called Forms.<br>
-Cumulus is the Forms API that we use in Geyser and Floodgate.<br>
-The source code is available [here](https://github.com/GeyserMC/Cumulus). You can access the Cumulus API through the [Floodgate API](/floodgate/api/), or the [Geyser API](/geyser/api).
+基岩版的ui叫做`表单`.<br>
+Cumulus 是一个 表单 的API库,Geyser以及Floodgate都在使用.<br>
+源代码见 [Cumulus](https://github.com/GeyserMC/Cumulus). 你可以通过 [Floodgate API](/floodgate/api/) 或者 [Geyser API](/geyser/api) 使用 Cumulus API.
 
-Bedrock knows three types of Forms:
+有三种表单:
 * ModalForm
 * SimpleForm
 * CustomForm
 
-We'll discuss them one by one starting with the easiest and ending with the least easy form type.<br>
-After that, you get an overview of every single component.<br>
-Then we'll talk about sending the form, receiving a response and doing advanced stuff.<br>
+我们将从最简单使用的表单类型讲起,最难使用的表单类型将会放到后面讲解.<br>
+我们会讲解如何构造.<br>
+最后的最后,我们会讲解如何发送它,以及对响应进行处理.<br>
 
 ## ModalForm
 
-While this is the easiest form type it's also the least customisable.<br>
-You have a title, description (content) and two buttons.
+这是最简单的一种表单类型,它无法扩展,只有固定的几个参数,又来入门
 
-![Example of a ModalForm](https://i.imgur.com/kMpMgOh.png)
+同时也可以用来发送调查问卷,同意否反对
 
-Code used in the image:
+<img src="{{ '/img/forms/ModalForm.png' | relative_url }}">
+
+![ModalForm使用图片](https://i.imgur.com/kMpMgOh.png)
+
+图片中使用的代码:
 
 ```java
 ModalForm.builder()
