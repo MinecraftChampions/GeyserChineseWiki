@@ -20,38 +20,35 @@ Cumulus 是一个 表单 的API库,Geyser以及Floodgate都在使用.<br>
 ## ModalForm
 
 这是最简单的一种表单类型,它无法扩展,只有固定的几个参数,又来入门
-
-同时也可以用来发送调查问卷,同意否反对
+同时也可以用来发送调查问卷,同意或者反对
 
 <img src="{{ '/img/forms/ModalForm.png' | relative_url }}">
 
-![ModalForm使用图片](https://i.imgur.com/kMpMgOh.png)
-
-图片中使用的代码:
+图片中使用的代码如下:
 
 ```java
 ModalForm.builder()
-    .title("Title")
-    .content("Content")
-    .button1("Button 1")
-    .button2("Button 2")
+    .title("Title")//标题
+    .content("Content")//内容
+    .button1("Button 1")//按钮1
+    .button2("Button 2")//按钮2
 ```
 
 ## SimpleForm
 
-While this one is less easy then ModalForm is, it also has more customizability.<br>
-It's still limited to title, content and buttons, but these buttons can also have images and do not have a minimum and maximum of two.
+它不像ModalForm那么简易,它拥有更多的扩展性.<br>
+它依然只有按钮,标题,内容,但是按钮可以带有图像,且没有限制.
 
-![Example of a SimpleForm](https://i.imgur.com/3rj2OQ2.png)
+<img src="{{ '/img/forms/SimpleForm.png' | relative_url }}">
 
-Code used in the image:
+图片中使用的代码:
 ```java
 SimpleForm.builder()
-    .title("Title")
-    .content("Content")
-    .button("Button without an image")
-    .button("Button with URL image", FormImage.Type.URL, "https://github.com/GeyserMC.png?size=200")
-    .button("Button with path image", FormImage.Type.PATH, "textures/i/glyph_world_template.png")
+    .title("Title")//标题
+    .content("Content")//内容
+    .button("Button without an image")//不带图像的按钮
+    .button("Button with URL image", FormImage.Type.URL, "https://github.com/GeyserMC.png?size=200")//带图像,为指定网络路径的按钮
+    .button("Button with path image", FormImage.Type.PATH, "textures/i/glyph_world_template.png")//带图像,为资源包路径的按钮
 ```
 
 ## CustomForm
@@ -60,7 +57,7 @@ While the CustomForm is the last one on our list (and thus the least easy one), 
 This form exists of a title, content and a list of different components e.g. label, slider and input.<br>
 See [Components](#components) for more information about every component you can use and in which form type.
 
-![Example of a CustomForm](https://i.imgur.com/zHgxELm.png)
+<img src="{{ '/img/forms/CustomForm.png' | relative_url }}">
 
 Code used in the image:
 
