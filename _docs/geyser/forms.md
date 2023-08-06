@@ -19,8 +19,8 @@ Cumulus 是一个 表单 的API库,Geyser以及Floodgate都在使用.<br>
 
 ## ModalForm
 
-这是最简单的一种表单类型,它无法扩展,只有固定的几个参数,又来入门
-同时也可以用来发送调查问卷,同意或者反对
+这是最简单的一种表单类型,它无法扩展,只有固定的几个参数,又来入门.<br>
+同时也可以用来发送调查问卷,同意或者反对.
 
 <img src="{{ '/img/forms/ModalForm.png' | relative_url }}">
 
