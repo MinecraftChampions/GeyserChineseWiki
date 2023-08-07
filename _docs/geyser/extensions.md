@@ -43,42 +43,38 @@ authors: [ExampleAuthor]
 
 ### 主类
 
-如果有个主类 [implement the 'Extension' interface provided by Geyser](https://github.com/GeyserMC/GeyserExampleExtension/blob/47614575a69bddecb241676215f3c9f9113db304/src/main/java/org/geyser/extension/exampleid/ExampleExtension.java#L10). 
-That way, Geyser recognizes the extension, and gives you access to important methods - such as 'logger()', to get your extensions logger. <br>
-To see all the methods provided by that interface, see [here](https://github.com/GeyserMC/Geyser/blob/master/api/src/main/java/org/geysermc/geyser/api/extension/Extension.java).
+在主类中我们应该 [ 实现'Extension'接口](https://github.com/GeyserMC/GeyserExampleExtension/blob/47614575a69bddecb241676215f3c9f9113db304/src/main/java/org/geyser/extension/exampleid/ExampleExtension.java#L10). 
+这样,你就能调用一些方法,例如`logger()`<br>
+要想知道这个接口中的全部方法,详见 [此页面](https://github.com/GeyserMC/Geyser/blob/master/api/src/main/java/org/geysermc/geyser/api/extension/Extension.java).
 
-Unlike plugins, extensions do not have a 'onEnable' or 'onDisable' method. Instead, most actions are done in events at different stages during Geyser's lifecycle using events.
-Some important ones are:
-- `GeyserPreInitializeEvent`: This event is fired when Geyser starts to initialize. If you e.g. need to register extension commands that are configured in your config, 
-you would need to load the config here to ensure that your config is ready before the GeyserDefineCommandsEvent is fired. 
-- `GeyserPostInitializeEvent`: It is called when Geyser has completed initializing. The bulk of your code should go here, as the GeyserAPI is fully available at this stage.
-- `GeyserShutdownEvent`: Called when Geyser is shutting down. You can use this to e.g. save data, or clean up resources.
+不同于插件, Geyser扩展没有 'onEnable' 或者 'onDisable' 方法. 相反, 它类似Forge, 需要监听各种Geyser的生命周期事件.
+有这几种事件:
+- `GeyserPreInitializeEvent`: 在Geyser准备加载时调用,它是最早触发的一个事件,建议读取配置等操作在这里执行
+- `GeyserPostInitializeEvent`: 在Geyser加载完调用,要调用GeyserAPI,请在这里执行
+- `GeyserShutdownEvent`: Geyser关闭时调用,建议用来保存数据等.
 
-See below for an example:
+示例:
 ```java
 @Subscribe
-public void onPostInitialize(GeyserPostInitializeEvent event) {
-    // example: show that your extension is loading.
+public void (GeyserPostInitializeEvent event) {
+    // 输出你个插件这个加载
     this.logger().info("Loading example extension...");
 }
 ```
-If you wish to register custom items, global resource packs (or soon, custom blocks and entities), you will need to subscribe to the event using the @Subscribe annotation,
-and register them in the event. You can find an example for custom items [here](/geyser/custom-items/#geyser-extensions). For other events, see [here](/geyser/events) for documentation.
-
-To build your extension, run the Gradle build task, and install the extension.
+如果你想要注册自定义资源包和物品,必须添加`@Subscribe`注解,详见 [此页面](/geyser/custom-items/#geyser扩展). 想要知道其它的事件,详见 [此页面](/geyser/events).
 
 ### 注册命令
-To create a command, you would need to use the "Commands" package in the Geyser API. Brief rundown:
+你应该阅读 Geyser API 的 "Commands" 包,与命令有关的类如下:
 - [Command.java](https://github.com/GeyserMC/Geyser/blob/master/api/src/main/java/org/geysermc/geyser/api/command/Command.java)
-  This interface represents a command in Geyser - to make one, you can use the CommandBuilder. You can register it with the
+  命令实例
   [GeyserDefineCommandsEvent](https://github.com/GeyserMC/Geyser/blob/master/api/src/main/java/org/geysermc/geyser/api/event/lifecycle/GeyserDefineCommandsEvent.java)
 - [CommandExecutor.java](https://github.com/GeyserMC/Geyser/blob/master/api/src/main/java/org/geysermc/geyser/api/command/CommandExecutor.java)
-  This interface represents a command execute handler in Geyser, and extends the CommandSource interface.
+  命令处理程序
 - [CommandSource.java](https://github.com/GeyserMC/Geyser/blob/master/api/src/main/java/org/geysermc/geyser/api/command/CommandSource.java)
-  This interface represents a command source in Geyser. It can be used to e.g. send messages to the source, check if the source has permission to execute a command, or get the locale.
+  命令源,发送者
 
 ```java
-Command command = Command.builder(this) // "this" is the extension's main class
+Command command = Command.builder(this) // 主类
         .name("ExampleCommand")
         .bedrockOnly(true)
         .source(CommandSource.class)
@@ -88,33 +84,27 @@ Command command = Command.builder(this) // "this" is the extension's main class
         .suggestedOpOnly(false)
         .permission("example.command")
         .executor((source, cmd, args) -> {
-            // this is the command executor - this is where you would put your code to execute the command.
-            // source is the source that executed the command
-            // cmd is the command that was executed
-            // args are the arguments passed to the command
+            // 操作
             source.sendMessage("Hello World");
         })
         .build();
 ```
 
-To register the command, you would need to subscribe to the GeyserDefineCommandsEvent, and register the command there:
+要想注册事件,必须监听`GeyserDefineCommandsEvent`事件
 ```java
 @Subscribe
 public void onDefineCommands(GeyserDefineCommandsEvent event) {
     event.register(command);
 }
 ```
-If everything went right, you should be able to execute the command in-game by running "/extesionid [command]" - in our case, "/exampleid examplecommand".
-Here, it would send "Hello World" to the source that ran the command.
-Since we also set aliases, you could also run "/exampleid example" or "/exampleid ex" for the same command.
-To provide args, simple run "/exampleid examplecommand [args]" - replacing [args] with the arguments you want to pass to the command.
+注册完之后,可以通过`/扩展id 命令 参数`进行调用
 
-### Listening to Events
-See [here](/geyser/events) for documentation. You do not need to register the event listener, Geyser will do that for you.
+### 监听事件
+详见 [事件](/geyser/events)
 
 ---
 
-Facing troubles with extensions?
-- Make sure you are using the latest version of Geyser - older versions might not have the latest API changes.
-- Add debug prints.
-- Ask in the #development channel in the [Geyser Discord server](https://discord.gg/geysermc).
+遇到问题?
+- 确保使用最新的Geyser.
+- 添加日志.
+- 在 [Geyser Discord](https://discord.gg/geysermc) 的 #development 频道进行询问.
