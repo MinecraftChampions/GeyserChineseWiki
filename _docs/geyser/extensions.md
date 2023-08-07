@@ -19,10 +19,10 @@ Geyser扩展可以使用GeyserApi,详见 [Geyser API 文档](/geyser/api/),举�
 ### 安装扩展
 把扩展文件丢到Geyser配置文件下的'extensions'目录
 
-### Creating Geyser Extensions
-The easiest way to create an extension would be utilizing [this official template](https://github.com/GeyserMC/GeyserExampleExtension/). Simply create a new repository from the template, customize the 'extension.yml' & 'settings.gradle' files, and get started making the extension.
+### 新建一个Geyser扩展
+可以通过 [Geyser扩展模板](https://github.com/GeyserMC/GeyserExampleExtension/) 进行开发. 有开发基础的人可以自己新建项目.
 
-Geyser recognizes extensions when they have a file called 'extension.yml' in the jars 'resources' folder.
+在 'resources' 目录下 新建 'extension.yml'.
 
 extension.yml:
 ```yml
@@ -34,16 +34,16 @@ version: 1.0.0
 authors: [ExampleAuthor]
 ```
 
-Explanations for the individual fields:
-- id: The id of the extension. Every extension needs to have their unique id - all lowercase letters. If you e.g. register a command for your extension, it will have the id as a prefix: e.g. '/exampleid command'.
-- name: The name of the extension.
-- main: The main class of your extension.
-- api: The Base API version your extension targets.
-- authors: The author(s) of the extension. To add more than one entry, separate entries with a comma.
+这些键的意义如下:
+- id:  扩展的id,它应该独一无二,另外还关系到你的命令处理,如 '/exampleid command'.
+- name: 扩展的名称
+- main: 扩展的主类
+- api: api版本
+- authors: 作者列表
 
 ### 主类
 
-The main class, the entrypoint for the extension, needs to [implement the 'Extension' interface provided by Geyser](https://github.com/GeyserMC/GeyserExampleExtension/blob/47614575a69bddecb241676215f3c9f9113db304/src/main/java/org/geyser/extension/exampleid/ExampleExtension.java#L10). 
+如果有个主类 [implement the 'Extension' interface provided by Geyser](https://github.com/GeyserMC/GeyserExampleExtension/blob/47614575a69bddecb241676215f3c9f9113db304/src/main/java/org/geyser/extension/exampleid/ExampleExtension.java#L10). 
 That way, Geyser recognizes the extension, and gives you access to important methods - such as 'logger()', to get your extensions logger. <br>
 To see all the methods provided by that interface, see [here](https://github.com/GeyserMC/Geyser/blob/master/api/src/main/java/org/geysermc/geyser/api/extension/Extension.java).
 
