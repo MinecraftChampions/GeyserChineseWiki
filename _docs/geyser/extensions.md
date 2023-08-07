@@ -1,26 +1,23 @@
 ---
-title: Geyser Extensions
+title: Geyser 扩展
 ---
 
-## Geyser Extensions
-Geyser Extensions are the equivalent of "plugins", but specifically for the Geyser platform. This brings the advantage of them being platform-agnostic, meaning that you won't have to worry about supporting all platforms individually. Additionally, they will be, by design, only applied for Bedrock players joining via Geyser.
+## Geyser 扩展
+Geyser 相当于 "plugins", 但是它不运行在服务端,是由Geyser运行,所以不必担心跨平台.  
 
-### What can Geyser Extensions do?
-Extensions can fully utilize the Geyser API to add additional functionality to Geyser. See [Geyser API docs](/geyser/api/) for info on what is currently possible. To name a few examples:
-- Register custom items
-- Hide commands from being suggested
-- Change the MOTD
-- Register your own commands
-- Listen to events, e.g. the emote event.
+### Geyser 扩展可以做什么?
+Geyser扩展可以使用GeyserApi,详见 [Geyser API 文档](/geyser/api/),举几个例子:
+- 注册自定义物品
+- 隐藏命令补全
+- 自定义 MOTD
+- 注册命令
+- 监听事件
 
-The underlying Geyser API is steadily expanding, creating more and more opportunities.
+### 哪里找Geyser扩展
+在这 [扩展 列表](https://github.com/GeyserMC/GeyserExtensionList)
 
-### Which Geyser Extensions exist?
-At the moment, extensions are still a new system, so there is only a small list of known extensions for Geyser. However, new extensions are always being created!
-There is an [official list](https://github.com/GeyserMC/GeyserExtensionList) of available extensions you can check out. If you have an extension you'd like to see on this list, feel free to open a PR!
-
-### Installing Extensions
-To install an extension, simply put the extension .jar file into Geyser's 'extensions' folder. Then, restart Geyser (or the server Geyser runs on).
+### 安装扩展
+把扩展文件丢到Geyser配置文件下的'extensions'目录
 
 ### Creating Geyser Extensions
 The easiest way to create an extension would be utilizing [this official template](https://github.com/GeyserMC/GeyserExampleExtension/). Simply create a new repository from the template, customize the 'extension.yml' & 'settings.gradle' files, and get started making the extension.
@@ -44,7 +41,7 @@ Explanations for the individual fields:
 - api: The Base API version your extension targets.
 - authors: The author(s) of the extension. To add more than one entry, separate entries with a comma.
 
-### Creating the main class
+### 主类
 
 The main class, the entrypoint for the extension, needs to [implement the 'Extension' interface provided by Geyser](https://github.com/GeyserMC/GeyserExampleExtension/blob/47614575a69bddecb241676215f3c9f9113db304/src/main/java/org/geyser/extension/exampleid/ExampleExtension.java#L10). 
 That way, Geyser recognizes the extension, and gives you access to important methods - such as 'logger()', to get your extensions logger. <br>
@@ -70,7 +67,7 @@ and register them in the event. You can find an example for custom items [here](
 
 To build your extension, run the Gradle build task, and install the extension.
 
-### Creating commands with Geyser Extensions
+### 注册命令
 To create a command, you would need to use the "Commands" package in the Geyser API. Brief rundown:
 - [Command.java](https://github.com/GeyserMC/Geyser/blob/master/api/src/main/java/org/geysermc/geyser/api/command/Command.java)
   This interface represents a command in Geyser - to make one, you can use the CommandBuilder. You can register it with the

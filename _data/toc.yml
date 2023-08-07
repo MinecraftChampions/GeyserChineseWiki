@@ -35,9 +35,9 @@
       url: "geyser/custom-items/"
       children:
         - title: JSON映射
-          url: "geyser/custom-items/#JSON-映射"
+          url: "geyser/custom-items/#json-映射"
         - title: Geyser扩展
-          url: "geyser/custom-items/#Geyser扩展"
+          url: "geyser/custom-items/#geyser扩展"
         - title: 资源包
           url: "geyser/custom-items/#资源包"
     - title: Geyser API
@@ -55,9 +55,9 @@
       url: "geyser/extensions/"
       children:
         - title: 主类
-          url: "geyser/extensions/#creating-the-main-class"
+          url: "geyser/extensions/#主类"
         - title: 注册命令
-          url: "geyser/extensions/#creating-commands-with-geyser-extensions"
+          url: "geyser/extensions/#注册命令"
     - title: 全局API
       url: "geyser/global-api/"
 

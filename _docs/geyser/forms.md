@@ -19,7 +19,7 @@ Cumulus 是一个 表单 的API库,Geyser以及Floodgate都在使用.<br>
 
 ## ModalForm
 
-这是最简单的一种表单类型,它无法扩展,只有固定的几个参数,又来入门.<br>
+这是最简单的一种表单类型,只有固定的几个参数,一般用来入门.<br>
 同时也可以用来发送调查问卷,同意或者反对.
 
 <img src="{{ '/img/forms/ModalForm.png' | relative_url }}">
@@ -36,7 +36,7 @@ ModalForm.builder()
 
 ## SimpleForm
 
-它不像ModalForm那么简易,它拥有更多的扩展性.<br>
+它不像ModalForm那么简易,它拥有更多的自定义性.<br>
 它依然只有按钮,标题,内容,但是按钮可以带有图像,且没有限制.
 
 <img src="{{ '/img/forms/SimpleForm.png' | relative_url }}">
@@ -53,9 +53,9 @@ SimpleForm.builder()
 
 ## CustomForm
 
-While the CustomForm is the last one on our list (and thus the least easy one), it also has the greatest customizability.<br>
-This form exists of a title, content and a list of different components e.g. label, slider and input.<br>
-See [Components](#components) for more information about every component you can use and in which form type.
+CustomForm就如同它的名字一样,在三个表单类型里自定义性最强.<br>
+它有标题,内容,和不同的组件
+有关于组件,详见 [组件](#组件)
 
 <img src="{{ '/img/forms/CustomForm.png' | relative_url }}">
 
@@ -63,26 +63,24 @@ Code used in the image:
 
 ```java
 CustomForm.builder()
-    .title("Title")
-    .dropdown("Text", "Option 1", "Option 2")
-    .input("Input", "placeholder")
-    .toggle("Toggle")
-    .slider("Text", 0, 10, 1, 5)
+    .title("Title")//标题
+    .dropdown("Text", "Option 1", "Option 2")//下滑选项列表,第一个为显示内容
+    .input("Input", "placeholder")//输入,文字框外内容和文字框内内容
+    .toggle("Toggle")//开关
+    .slider("Text", 0, 10, 1, 5)//滑块
 ```
 
-## Sending a form
+## 发送表单
 
-After you decided which form type you want to use and finished filling in the actual content, it's time to send the Form to the Bedrock player.<br>
-You can do that by calling the API and send a form to the player's UUID and the form:
+当你构建完表单,就需要将表单发送给基岩版玩家了,调用方法如下:
 ```java
-FloodgateApi.getInstance().sendForm(uuid, form); // or #sendForm(uuid, formBuilder)
+FloodgateApi.getInstance().sendForm(uuid, form); // 或者 #sendForm(uuid, formBuilder)
 ```
-Or you can do it by using the Player's FloodgatePlayer instance:
+你也可以通过`FloodgatePlayer`实例进行操作
 ```java
 FloodgatePlayer player = FloodgateApi.getInstance().getPlayer(uuid);
 player.sendForm(form); // or #sendForm(formBuilder)
 ```
-So you can make and send forms in a pretty compact way by doing something like this:
 ```java
 FloodgatePlayer player = FloodgateApi.getInstance().getPlayer(uuid);
 ...
@@ -93,25 +91,48 @@ player.sendForm(
 );
 ```
 
-## Receiving a response from the client
+## 接受响应并处理
 
-It's nice and all that we can send forms to a client, but we also want to be able to get a response from a client and being able to handle them.<br>
-We can do that using one (or multiple) result handers. The most used result handlers are: `validResultHandler(BiConsumer<Form, ValidFormResponseResult> | Consumer<ValidFormResponseResult>)`, `invalidResultHandler`, `closedResultHandler` and `closedOrInvalidResultHandler`.<br>
+当我们发送完表单时,我们就需要接受客户端的相应并作出相应的处理.<br>
+要想处理,我们可以使用: `validResultHandler(BiConsumer<Form, ValidFormResponseResult> | Consumer<ValidFormResponseResult>)`, `invalidResultHandler`, `closedResultHandler` 和 `closedOrInvalidResultHandler`.<br>
 Here follows an example that uses result handlers:
 ```java
-CustomForm.builder()
-    .title("geyser.auth.login.form.details.title")
-    .label("geyser.auth.login.form.details.desc")
-    .input("geyser.auth.login.form.details.email", "account@geysermc.org", "")
-    .input("geyser.auth.login.form.details.pass", "123456", "")
-    .closedOrInvalidResultHandler(() -> buildAndShowLoginDetailsWindow(session))
-    .validResultHandler(response -> session.authenticate(response.next(), response.next())));
+SimpleForm.builder()
+        .title("标题")
+        .content("文字")
+        .button("某个按钮")
+        .button("第二个按钮")
+        //关闭操作
+        .closedResultHandler(form -> {
+        String content = form.content();
+        String title = form.title();
+        List<ButtonComponent> buttonList = form.buttons();
+        buttonList.forEach(button -> {
+        button.image();
+        button.text();
+        });
+        })
+        //无效操作处理
+        .invalidResultHandler(result -> {
+        int index = result.componentIndex();
+        ResultType t = result.responseType();
+        String errorMessage = result.errorMessage();
+        result.isClosed();
+        result.isInvalid();
+        result.isValid();
+        })
+        //关闭或无效操作处理
+        .closedOrInvalidResultHandler(result -> {})
+        //有效操作处理
+        .validResultHandler(result -> {
+        ButtonComponent button = result.clickedButton();
+        });
 ```
 
-## Advanced stuff
+## 表单的i18n
 
-The FormBuilder also has support for translating the data used in the builder.<br>
-To add a translator, you can use the `translator(BiFunction<String, String, String>)` or the `translator(BiFunction<String, String, String>, String)` method:
+表单上同样可以为不同的区域设置不同的语言<br>
+要想添加翻译,可以使用 `translator(BiFunction<String, String, String>)` 或者 `translator(BiFunction<String, String, String>, String)` 例如:
 ```java
 ModalForm form = ModalForm.builder()
     .translator(this::translate, userLanguage)
@@ -122,21 +143,16 @@ ModalForm form = ModalForm.builder()
     .build();
 
 public String translate(String key, String locale) {
-    // this method will be called for every string, in this case, 4 times:
-    // Title, Content, translate.button1, translate.button2
-    // your own translate logic here
-    // return the value that replaces the key
+    // 处理
+    // 这里的key有4个,就是刚刚定义的Tilte,Content,translate.button1,translate.button2
 }
 ```
-Or you can have the translate method directly in the FormBuilder instead of a separate method:
+也可以直接使用lambada表达式
 ```java
 ModalForm form = ModalForm.builder()
     .translator((key, unused) -> {
-        // this method will be called for every string, in this case, 4 times:
-        // Title, Content, translate.button1, translate.button2
-        // since this isn't a separate method, you don't need the locale argument, so it's unused.
-        // your own translate logic here
-        // return the value that replaces the key
+        // 处理
+        // 这里的key有4个,就是刚刚定义的Tilte,Content,translate.button1,translate.button2
     })
     .title("Title")
     .content("Content")
