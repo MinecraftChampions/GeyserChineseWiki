@@ -1,8 +1,8 @@
 ---
-title: FAQ
+title: 常见问题
 ---
 
-# FAQ
+# 常见问题
 
 ## Changing/disabling the prefix
 

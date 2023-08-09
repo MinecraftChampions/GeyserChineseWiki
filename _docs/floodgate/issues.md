@@ -1,12 +1,12 @@
 ---
-title: Issues
+title: 常见异常
 ---
 
-# Known Issues & Caveats
-If an issue you're experiencing is not listed here, please consider joining the Geyser [Discord](http://discord.geysermc.org/).
+# 已知异常和注意事项
+如果你遇到的异常没有被收录,请加入Geyser 的 [Discord](http://discord.geysermc.org/).
 
-## Running commands
-In some instances, like if you have the `username-prefix` set to `*`, you may need to wrap the Bedrock player's username in quotes; for example: `/tp "*BedrockPlayer"`. Setting the prefix to `.` should also fix this.
+## 运行命令异常
+在某些情况时,你将 `username-prefix` 设置为了 `*`, 在输入命令时如果需要用到基岩版玩家名字, 你应该用引号包括; 如: `/tp "*qscbm187531"`. Setting the prefix to `.` should also fix this.
 
 ## If you wish to use IP forwarding, please enable it in your BungeeCord config as well!
 It is likely you have enabled `send-floodgate-data` in your Floodgate config but either Floodgate isn't installed on the target server, or your floodgate key isn't the same between the installs of the plugin (please copy them so they all use the same key).
