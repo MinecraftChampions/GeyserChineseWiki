@@ -1,5 +1,5 @@
 ---
-title: 设置Geyser
+title: 搭建Geyser
 page_sidebar: false
 ---
 <div class="row gap-4 mx-0" role="tablist">

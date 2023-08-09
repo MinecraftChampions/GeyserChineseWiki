@@ -64,7 +64,7 @@
 - title: Floodgate中文文档
   url: "floodgate/"
   links:
-    - title: "搭建"
+    - title: "搭建Floodgate"
       url: "floodgate/setup/"
     - title: "常见异常"
       url: "floodgate/issues/"

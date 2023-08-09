@@ -1,5 +1,5 @@
 ---
-title: Floodgate Setup
+title: 搭建Floodgate
 page_sidebar: false
 ---
 

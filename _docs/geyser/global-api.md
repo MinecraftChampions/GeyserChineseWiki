@@ -3,21 +3,21 @@ title: 全局API
 ---
 
 ### 全局API
-全局API可以在所有服务器上使用: [Global Linking](/floodgate/linking/#what-is-global-linking), [skin uploading](/floodgate/features/#what-is-skin-uploading), getting a xuid by gamertag, and getting a gamertag by xuid.
-We don't store anything else than you can access by the Global API, except for some non-identifiable metrics. The source code of the Global API is available [here](https://github.com/GeyserMC/global_api) and the source code of the Global Linking server is available [here](https://github.com/GeyserMC/GlobalLinkServer).
+全局API可以在所有服务器上使用,它有如下功能: [全局连接](/floodgate/linking/#what-is-global-linking), [皮肤上传](/floodgate/features/#what-is-skin-uploading), 通过名称获取xuid, 通过xuid获取名称.
+全局API不会存储任何其他数据. 全局API源代码在 [这里](https://github.com/GeyserMC/global_api), 全局连接服务器在 [这](https://github.com/GeyserMC/GlobalLinkServer).
 
-As a user of the API, you can get various info about Geyser (or specifically, Floodgate players) that joined any Geyser + Floodgate server before. This includes:
-- Conversion methods from a Bedrock gamertag to Bedrock xuid, and vice-versa. Only provides info for players who are in Geyser's cache. <br>
-  If you need them for all players, you can use a third-party API, e.g. https://mcprofile.io/endpoints, which also provides info from the Geyser Global API.
-- Skin info: Whenever a Bedrock player joins via Floodgate, their skin gets converted & uploaded to mineskin. If you want to grab that converted skin, use the xuid of the Bedrock player in this endpoint to get a texture id, or a base64 encoded "value", which you could use directly in e.g. player heads.
+作为使用全局API的用户, 你可以通过它获取任何一个有Geyser插件的服务器的基岩版玩家信息, 例如:
+- 通过名称获取xuid, 通过xuid获取名称, 当然这里的信息只有缓存时才能获取. <br>
+  当然, 你可以使用第三方API, 如 https://mcprofile.io/endpoints.
+- 皮肤信息: 每当基岩版玩家进入一个有Floodgate的服务器时,他的皮肤信息就上传到了mineskin, 可以通过xuid获取资源版玩家的皮肤的base64值.
 
-See the [Global API docs](https://api.geysermc.org/docs) for more info, and detailed usage.
+详见 [全局API文档](https://api.geysermc.org/docs).
 
-### Examples
-Here are a few examples of how you could use the Global API. <br>
+### 示例
+这里有一些示例能帮助你学会如何使用全局API. <br>
 
 [GeyserDiscordBot](https://github.com/GeyserMC/GeyserDiscordBot/blob/master/src/main/java/org/geysermc/discordbot/commands/FloodgateUuidCommand.java) 
-- GeyserMC's discord bot has a /uuid command to get a floodgate uuid from a bedrock username. <br>
+- 通过玩家名获取Floodgate玩家的uuid.<br>
 
-[FabricGeyserPlayerHeads](https://github.com/onebeastchris/fabricgeyserplayerheads/blob/master/src/main/java/net/onebeastofchris/geyserplayerheads/utils/PlayerUtils.java#L57-L75)
-- A fabric mod that uses the Global API to get a Bedrock player's skin, and then uses that to create a player head.
+[FabricGeyserPlayerHeads](https://github.com/onebeastchris/customplayerheads/blob/master/src/main/java/net/onebeastofchris/customplayerheads/utils/PlayerUtils.java#L54-L72)
+- 通过全局API获取玩家皮肤, 并生成玩家头颅.
