@@ -6,19 +6,21 @@ title: 常见异常
 如果你遇到的异常没有被收录,请加入Geyser 的 [Discord](http://discord.geysermc.org/).
 
 ## 运行命令异常
-在某些情况时,你将 `username-prefix` 设置为了 `*`, 在输入命令时如果需要用到基岩版玩家名字, 你应该用引号包括; 如: `/tp "*qscbm187531"`. Setting the prefix to `.` should also fix this.
 
-## If you wish to use IP forwarding, please enable it in your BungeeCord config as well!
-It is likely you have enabled `send-floodgate-data` in your Floodgate config but either Floodgate isn't installed on the target server, or your floodgate key isn't the same between the installs of the plugin (please copy them so they all use the same key).
+在某些情况时,你将 `username-prefix` 设置为了 带有`*`的字符串, 在输入命令时如果需要用到基岩版玩家名字, 你应该用引号包括; 如: `/tp "*qscbm187531"`. 设置为别的前缀可以解决这个问题.
+
+## 如果你想使用IP转发, 请在 BungeeCord的 Floodgate 配置文件设置好!
+
+如果你代理端的配置文件已经启动 `send-floodgate-data`,那么可能是子服没有安装Floodgate,或者是`key.pem`文件不同
 
 ## `java.lang.IllegalStateException: Cannot reply to EncryptionRequestPacket without profile and access token.`
 
-Make sure the server has Floodgate installed and started up correctly. Otherwise, see if the next line fixes your error.
+请确保服务器已经安装并启动了Floodgate,否则请查看下一行的内容
 
 ## `javax.crypto.AEADBadTagException: Tag mismatch!`
 
-If Geyser and Floodgate are on the same server, shut down your server, delete the `floodgate` plugin folder, delete any key file in the Geyser folder, and restart your server.
-If Geyser and Floodgate are not on the same server and you had to copy the key file, this could also be an error related to uploading through FTP. Using ASCII will not work here, and you need to make sure you're on binary when uploading. We recommend using [WinSCP](https://winscp.net/eng/index.php) if you need to use FTP.
+如果同时在一台服务器安装了Geyser和Floodgate, 请删除 `floodgate` 文件夹, 并删除Geyser文件夹下的`key.pem`.
+如果在不同的服务器, this could also be an error related to uploading through FTP. Using ASCII will not work here, and you need to make sure you're on binary when uploading. We recommend using [WinSCP](https://winscp.net/eng/index.php) if you need to use FTP.
 
 ## java.lang.NumberFormatException: For input string: ""
 
