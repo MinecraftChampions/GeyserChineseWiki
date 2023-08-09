@@ -1,15 +1,15 @@
-# Floodgate setup with Geyser-Standalone
+# 在Geyser独立版设置Floodgate
 
 <div class="alert alert-info" role="alert">
-	To be able to use Floodgate authentication, you need to be able to install Floodgate on the server you are connecting to.
+	请注意,本教程指在服务器安装Floodgate后,独立版配置
 </div>
 
-1. Download Floodgate from the [download page](https://geysermc.org/download).
-2. Install the Floodgate jar - see the platform instructions for detailed info.
-3. Change `auth-type` in Geyser Standalone's config to `floodgate`.
-4. Copy the `key.pem` file in the Floodgate config folder to the same directory as Geyser Standalone. 
-5. Restart Geyser-Standalone.
+1. 下载 [Floodgate](https://geysermc.org/download).
+2. 在服务器上安装 Floodgate
+3. 更改配置文件的`auth-type`为`floodgate`
+4. 把 服务器 Floodgate目录下的 `key.pem` 丢到Geyser独立版目录下
+5. 启动Geyser独立版
 
 <div class="alert alert-warning" role="alert">
-	DO NOT DISTRIBUTE THIS KEY TO ANYBODY! This key is what allows for Bedrock accounts to bypass the Java Edition authentication, and if anyone gets ahold of this, they can wreak havoc on your server.
+	不要泄露`key.pem`,这是你服务器的密钥
 </div>

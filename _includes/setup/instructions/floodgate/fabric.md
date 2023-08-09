@@ -1,11 +1,11 @@
 
-# Floodgate-Fabric setup
+# 搭建Floodgate-Fabric
 
-1. Download Floodgate-Fabric from the [modrinth page](https://modrinth.com/mod/floodgate). 
-2. Place the Floodgate-Fabric.jar in the `mods` folder, and restart the server. **You also need [FabricAPI](https://modrinth.com/mod/fabric-api) installed.**
-3. Change `auth-type` in Geyser's config to `floodgate`.
-4. Restart the server.
+1. 下载 [Floodgate](https://modrinth.com/mod/floodgate). 
+2. 把 Floodgate-Fabric.jar 丢到 `mods` 文件夹, **注意需要 [FabricAPI](https://modrinth.com/mod/fabric-api) installed.**
+3. 把Geyser配置文件里的 `auth-type` 改为 `floodgate`.
+4. 重启服务器.
 
 
-**Note for Fabric behind a Velocity proxy:**
-You will need to configure FabricProxyLite to allow the Fabric server to receive data from Velocity.
+**如果使用Velocity请注意:**
+你需要配置 FabricProxyLite 以启用Fabric服务器从Velocity接受数据
