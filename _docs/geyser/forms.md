@@ -55,7 +55,7 @@ SimpleForm.builder()
 
 CustomForm就如同它的名字一样,在三个表单类型里自定义性最强.<br>
 它有标题,内容,和不同的组件
-有关于组件,详见 [组件](#组件)
+有关于组件,详见 [组件](https://github.com/GeyserMC/Cumulus/tree/master/src/main/java/org/geysermc/cumulus/component)
 
 <img src="{{ '/img/forms/CustomForm.png' | relative_url }}">
 
