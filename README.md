@@ -6,9 +6,9 @@
 
 [点击访问](https://geyserwiki.qscraft.top)
 
-This is the repository that contains the wiki for all of GeyserMCs projects.
+本仓库对大部分文本内容进行汉化,同时下载了一些图片存储在此.
 
-The wiki can be accessed using [this link](https://wiki.geysermc.org).
+另外,本项目与GeyserMC没有任何关系
 
 ## Contributing
 
