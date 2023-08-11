@@ -1,27 +1,26 @@
 # Floodgate setup on a BungeeCord/Velocity proxy
 
 <div class="alert alert-info" role="alert">
-	You only need to install Floodgate on the BungeeCord or Velocity proxy server, unless you want to use the Floodgate API on the backend servers.
-    Additionally, it will display Bedrock edition skins properly.
+	你可以只在代理服务端上安装Floodgate, 但是建议在所有子服务器上安装Floodgate
 </div>
 
-1. Download Floodgate for your proxy software from the [download page](https://geysermc.org/download). 
-2. Place the Floodgate jar in the `plugins` folder, and restart the proxy server.
-3. Change `auth-type` in Geyser's config to `floodgate`.
-4. Restart the server.
+1. 首先下载 [Floodgate](https://geysermc.org/download). 
+2. 把文件丢到 `plugins` 目录, 然后重启服务器.
+3. 设置Geyser配置文件中的 `auth-type` 为 `floodgate`.
+4. 重启服务器
 
-## Installing Floodgate on servers behind the proxy
+## 在子服务器搭建Floodgate
 
-This is only needed when you want to use the Floodgate API on your backend server(s) behind a proxy.
+如果你想要在子服务器安装Floodgate,请继续阅读
 
-1. After installing Floodgate on the proxy, install Floodgate on the backend servers (either Floodgate-Spigot, or Floodgate-Fabric).
-2. Enable `ip_forward` in your BungeeCord `config.yml` if using BungeeCord. For Velocity, set up [player information forwarding](https://docs.papermc.io/velocity/player-information-forwarding).
-3. Set bungeecord to true in your spigot.yml. When using Velocity, see their guide, as they have multiple options that require different setups.
-4. Start the proxy server.
-5. Edit the Floodgate config on your proxy server and set send-floodgate-data to true.
-6. Copy the `key.pem` file in the proxy Floodgate config folder to all backend servers’ Floodgate config folder.
-7. Restart the backend servers and proxy server.
+1. 在代理端安装好Floodgate之后,在所有子服务器安装Floodgate
+2. 如果你使用BungeeCord请启用`config.yml` 里的 `ip_forward`. 如果使用Velocity, 设置 [玩家信息转发](https://docs.papermc.io/velocity/player-information-forwarding).
+3. 在`spigot.yml`启用bungeecord. 使用Velocity请参阅Velocity的文档
+4. 启动服务器
+5. 编辑 代理端的 Floodgate 配置文件 中的 `send-floodgate-data` 为 true.
+6. 复制代理端的 `key.pem` 到所有子服务器
+7. 重启服务器
 
 <div class="alert alert-warning" role="alert">
-    DO NOT DISTRIBUTE THIS KEY TO ANYBODY! This key is what allows for Bedrock accounts to bypass the Java Edition authentication, and if anyone gets ahold of this, they can wreak havoc on your server.
+	不要泄露`key.pem`,这是你服务器的密钥
 </div>
