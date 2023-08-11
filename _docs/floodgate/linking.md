@@ -2,57 +2,58 @@
 title: 绑定
 ---
 
-# 绑定系统
+## 绑定系统
 
 什么是绑定系统,很好理解,就是将基岩版账号和Java版账号绑定起来,当服务器启用这个功能的时候,基岩版玩家进入时默认就会游玩它绑定的Java账户
 
+注意:如果你绑定了Java帐号之后,进入服务器只会游玩Java的账号,所有数据都是你Java的账号,你将无法游玩你基岩版的账号.要想继续使用基岩版账号,可以取消绑定.
+
+详见: [https://link.geysermc.org/](https://link.geysermc.org/)
+
 ## 什么是全局绑定?
+在我们开发出全局绑定这个系统之前,大部分的服务器都是使用本地绑定,用户每加入一个服务器就要绑定一次,还给服务器添加了负担.在全局绑定出现之后,用户再也不需要繁琐的操作,
+只需要一次绑定,随处可用(仅限于开启了这个功能的服务器)
 
-Instructions and information about how to link can also be found here: [https://link.geysermc.org/](https://link.geysermc.org/)
+全局绑定基于 [全局API](/geyser/global-api).
 
-Before we introduced Global Linking, you always had to link your Java and Bedrock account on every individual server you visited (that has Floodgate). Global Linking is here to fix that problem. Link once, join everywhere.<br>
+目前,想要绑定账号又两种方法.
+I:
+  使用全局绑定服务器绑定你的账户. 如果你想绑定账户,教程如下:
+  1. 使用你的Java账户加入全局绑定服务器
+   (IP: `link.geysermc.org`, Java端口: `25565`, 基岩版端口: `19132`)
+  2. 进入之后使用 `/linkaccount` 命令
+  3. 输入命令之后输入命令的那个账号会收到验证码
+  4. 然后在不是输入命令的那个账号使用 `/linkaccount <code>` 命令
+  5. 然后你就会被提出服务器,并显示已经绑定成功的消息
 
-Keep in mind: While having your accounts linked, you will use the Java account's location, inventory data, and achievements etc. regardless of which platform you sign in from (therefore, "synchronising" the player data). The player data from the Bedrock account will not be accessible until you unlink again. As a result, you should transfer everything (ender chest contents, items, armor) to the Java account before linking to not "lose" your Bedrock progress. If you forgot to do this, you can unlink, transfer everything over, and link again.
+  要想取消绑定,请再次加入服务器并输入 `/unlinkaccount` 指令. 
 
-Global Linking is part of the [Global Api](/geyser/global-api) and uses the GlobalLinkServer to link your account. To be able to link your account you have to do the following:
-1. Join the GlobalLinkServer with both your Java and Bedrock account  
-   (IP: `link.geysermc.org`, Java port: `25565`, Bedrock port: `19132`)
-2. Start the linking process by typing `/linkaccount` on your Java **or** Bedrock account
-3. You'll get a message with a random number that you have to enter on the account that you did not start the linking process on.
-4. Enter the random number on the other account by typing `/linkaccount <code>`
-5. You should get kicked from the server on both your Bedrock and Java account with the message that it had successfully linked your accounts.
+II:
+   使用网页进行绑定:[跟着网页的指导进行绑定](https://link.geysermc.org/method/online)
 
-To unlink your globally linked accounts, join the GlobalLinkServer (as described above for linking) on either Java or Bedrock, and use the `/unlinkaccount` command. 
-
-Global Linking should be enabled by default on every server running Floodgate 2.0, but in the case that you disabled it, you can enable it again by opening your Floodgate config and make sure that the `player-link` section looks similar to this:
+默认情况下Floodgate 2.0 都启用了全局绑定,相关配置文件如下:
 ```yml
-# Configuration for player linking
+# 绑定系统配置项
 player-link:
-  # Whether to enable the linking system. Turning this off will prevent
-  # players from using the linking feature even if they are already linked.
+  # 是否启用
   enabled: true
-  # Whether to use global linking. Global linking uses a central server to request link
-  # accounts, allowing people to link once, join everywhere (on servers with global linking).
+  # 是否使用全局绑定
   use-global-linking: true
 ```
-([see the default config](https://github.com/GeyserMC/Floodgate/blob/master/core/src/main/resources/config.yml))
-
-Once you saved the config and restarted your server you should be using Global Linking.
-
-If you don't want to use Global Linking, you can disable `enable-global-linking` in the Floodgate config.
+([更全的配置](https://github.com/GeyserMC/Floodgate/blob/master/core/src/main/resources/config.yml#L25-L59))
 
 ## 本地绑定
-You can also set up a local linking database on your server. Local linking can work with Global Linking at the same time. Link entries in your local database will override entries in the Global Linking Server.
+你可以自己搭建数据库存储绑定信息,本地绑定可以和全局绑定一起使用,优先级是本地绑定 > 全局绑定
 
-Note that you only have to follow these steps on your proxy (BungeeCord or Velocity), if you have one.
+如果你使用代理端,只需要在代理端操作
 
-1. Download one of the linking databases extensions [here](https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/).
-   If you need help picking the right one: choose `mysql` if you already have a database or want to have a multi-proxy setup. For anything else choose `sqlite`. The full name should be `floodgate-*type*-database.jar`.
-2. Copy the database extension jar you just downloaded *into* the floodgate 2.0 plugin folder (e.g. `/plugins/floodgate/`).
-3. Enable `enable-own-linking` in the `player-link` section of Floodgate.
-4. Set `type` in the `player-link` section to your database type (currently either `mysql` or `sqlite`). (If you used Floodgate 1.0 and had linking enabled back then; the database type was `sqlite`).
-5. Restart your server
+1. 下载 [数据库扩展](https://ci.opencollab.dev/job/GeyserMC/job/Floodgate/job/master/).
+   如果你不知道什么是数据库的话,或者没有安装数据库,请使用`sqlite`.数据库扩展文件名为: `floodgate-*类型*-database.jar`.
+2. 把文件丢到Floodgate目录下 (例如 `/plugins/floodgate/`).
+3. 启用 `player-link` 中的 `enable-own-linking`.
+4. 设置 `player-link` 中的 `type` 为你的数据库版本  (Floodgate 1.0 总是为 `sqlite`).
+5. 重启服务器
 
-If you have selected `mysql` a new data folder for the database should be generated inside the Floodgate data folder. You can enter your database credentials in there. After you did that restart your server once more.
+如果你选择了 `mysql` 那Floodgate会生成一个文件让你配置相关信息
 
-That should be it. You can then link your accounts by following the instructions you get when typing `/linkaccount`.
+然后在服务器输入 `/linkaccount` 指令进行绑定 .
