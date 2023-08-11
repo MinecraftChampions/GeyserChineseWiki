@@ -59,7 +59,7 @@ GeyserApi.api();
 ### Geyser API的简要概述
 
 #### [Cumulus](https://github.com/GeyserMC/Cumulus/tree/master/src/main/java/org/geysermc/cumulus) 
-允许你向基岩版玩家发送表单,详见 [Cumulus](/floodgate/forms/) 
+允许你向基岩版玩家发送表单,详见 [Cumulus](/geyser/forms/) 
 
 #### [Events](https://github.com/GeyserMC/Geyser/tree/master/api/src/main/java/org/geysermc/geyser/api/event)
 包含了所有Geyser触发的事件. 详见 [事件列表](/geyser/events) .
@@ -89,6 +89,6 @@ GeyserApi.api();
 ResourcePack pack = ResourcePack.create(PackCodec.path(path));
 ```
 
-#### [Extension](https://github.com/GeyserMC/Geyser/tree/master/api/src/main/java/org/geysermc/geyser/api/extensions)
+#### [Extension](https://github.com/GeyserMC/Geyser/tree/master/api/src/main/java/org/geysermc/geyser/api/extension)
 提供了有关扩展的相关类和接口.
 详见 [Geyser扩展](/geyser/extensions).

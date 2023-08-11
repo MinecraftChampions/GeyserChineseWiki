@@ -46,7 +46,7 @@
         - title: 开始
           url: "geyser/getting-started-with-the-api/"
         - title: 概述
-          url: "geyser/api/#Geyser-API的简要概述"
+          url: "geyser/api/#geyser-api的简要概述"
         - title: 事件
           url: "geyser/events/"
         - title: 表单

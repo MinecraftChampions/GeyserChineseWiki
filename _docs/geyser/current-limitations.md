@@ -17,7 +17,7 @@ Geyser 是两个不同版本游戏的协议转换器,但很遗憾的是,Geyser �
 - 不使用 Minecraft Brigadier 库的命令的命令补充提示
 - 任何在聊天框依赖 Tab 补充和直接发送的聊天框UI
 - 堆叠超过六层的旗帜
-- 由于 Java版 和 基岩版 之间的差异,玩家在竹子周围存在移动问题.下面的插件可解决此问题,但请在使用前阅读 README: https://github.com/Camotoy/GeyserHacks
+- 由于 Java版 和 基岩版 之间的差异,玩家在竹子周围存在移动问题.下面的插件可解决此问题,但请在使用前阅读 README: [Hurricane](https://github.com/GeyserMC/Hurricane)
 - 自定义铁砧配方
 - 主世界维度最低高度低于 -64 或者最高高度高于 320 、在其他维度最低高度低于 0 或者最高高度高于 256.
 - 海豚的恩惠视觉效果（药水效果本身可以正常工作）
