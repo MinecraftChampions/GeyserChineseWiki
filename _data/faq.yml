@@ -31,7 +31,7 @@
         * [ProtocolSupportBungee](https://www.spigotmc.org/resources/8733/) 破坏 Floodgate 玩家登录流程,导致 Floodgate API 等可能存在异常.
         * [SayNoToMcLeaks](https://www.spigotmc.org/resources/40906/) 破坏 Floodgate 玩家登录流程,导致 Floodgate API 等可能存在异常.
         
-        如果你发现其他不兼容情况,可通过 [Discord](http://discord.gg/geysermc) 联系GeyserMC.
+        如果你发现其他不兼容情况,可通过 [Discord](https://discord.gg/geysermc) 联系GeyserMC.
 
     - title: Geyser-Spigot 支持什么版本?
       content: |
