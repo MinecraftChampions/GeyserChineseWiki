@@ -104,22 +104,22 @@ SimpleForm.builder()
         .button("第二个按钮")
         //关闭操作
         .closedResultHandler(form -> {
-        String content = form.content();
-        String title = form.title();
-        List<ButtonComponent> buttonList = form.buttons();
-        buttonList.forEach(button -> {
-        button.image();
-        button.text();
-        });
+            String content = form.content();
+            String title = form.title();
+            List<ButtonComponent> buttonList = form.buttons();
+            buttonList.forEach(button -> {
+                button.image();
+                button.text();
+            });
         })
         //无效操作处理
         .invalidResultHandler(result -> {
-        int index = result.componentIndex();
-        ResultType t = result.responseType();
-        String errorMessage = result.errorMessage();
-        result.isClosed();
-        result.isInvalid();
-        result.isValid();
+            int index = result.componentIndex();
+            ResultType t = result.responseType();
+            String errorMessage = result.errorMessage();
+            result.isClosed();
+            result.isInvalid();
+            result.isValid();
         })
         //关闭或无效操作处理
         .closedOrInvalidResultHandler(result -> {})
