@@ -1,9 +1,9 @@
 ---
-title: Commands
+title: 命令列表
 ---
 
-| Command | Permission | Description |
-|:---:|:---:|:---:|
-| `fwhitelist` | `floodgate.command.fwhitelist` | Whitelist command for Floodgate players. See [here](/floodgate/features/#whitelist-command) for details. |
-| `linkaccount` | `floodgate.command.linkaccount` | Link your account for local linking. |
-| `unlinkaccount` | `floodgate.command.unlinkaccount` | Unlink your account for local linking. |
+| Command | Permission |                     Description                     |
+|:---:|:---:|:---------------------------------------------------:|
+| `fwhitelist` | `floodgate.command.fwhitelist` | 为基岩版玩家做的白名单命令,详见 [此页面](/floodgate/features/#白名单命令). |
+| `linkaccount` | `floodgate.command.linkaccount` |                     使用本地绑定你的账户                      |
+| `unlinkaccount` | `floodgate.command.unlinkaccount` |                    使用本地取消绑定你的账户.                    |
