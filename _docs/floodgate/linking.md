@@ -1,8 +1,13 @@
 ---
-title: Linking
+title: 绑定
 ---
 
-## What is Global Linking?
+# 绑定系统
+
+什么是绑定系统,很好理解,就是将基岩版账号和Java版账号绑定起来,当服务器启用这个功能的时候,基岩版玩家进入时默认就会游玩它绑定的Java账户
+
+## 什么是全局绑定?
+
 Instructions and information about how to link can also be found here: [https://link.geysermc.org/](https://link.geysermc.org/)
 
 Before we introduced Global Linking, you always had to link your Java and Bedrock account on every individual server you visited (that has Floodgate). Global Linking is here to fix that problem. Link once, join everywhere.<br>
@@ -36,7 +41,7 @@ Once you saved the config and restarted your server you should be using Global L
 
 If you don't want to use Global Linking, you can disable `enable-global-linking` in the Floodgate config.
 
-## Local Linking
+## 本地绑定
 You can also set up a local linking database on your server. Local linking can work with Global Linking at the same time. Link entries in your local database will override entries in the Global Linking Server.
 
 Note that you only have to follow these steps on your proxy (BungeeCord or Velocity), if you have one.

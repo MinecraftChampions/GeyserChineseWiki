@@ -86,13 +86,13 @@
           url: "floodgate/player/"
         - title: "Cumulus表单功能(基岩版UI)"
           url: "geyser/forms/"
-    - title: "连接"
+    - title: "绑定账户"
       url: "floodgate/linking/"
       children:
-        - title: 全局连接
-          url: "floodgate/linking/#what-is-global-linking"
-        - title: 本地连接
-          url: "floodgate/linking/#local-linking"
+        - title: 全局绑定
+          url: "floodgate/linking/#什么是全局绑定"
+        - title: 本地绑定
+          url: "floodgate/linking/#本地绑定"
 - title: 其他
   url: "other/"
   links:
