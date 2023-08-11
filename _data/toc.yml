@@ -82,7 +82,7 @@
     - title: "Floodgate API"
       url: "floodgate/api/"
       children:
-        - title: "Floodgate玩家"
+        - title: "FloodgatePlayer"
           url: "floodgate/player/"
         - title: "Cumulus表单功能(基岩版UI)"
           url: "geyser/forms/"

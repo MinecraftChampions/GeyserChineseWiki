@@ -2,7 +2,7 @@
 title: FloodgatePlayer
 ---
 
-FloodgatePlayer is something that every player who's connect through Floodgate has.<br>
-It contains information about the Bedrock client which can be useful in various situations.
+FloodgatePlayer是每个基岩版玩家进入时都会创建的实例.<br>
+它包含了基岩版客户端的各种信息.
 
-You can get a FloodgatePlayer by using the `FloodgateApi#getPlayer(uuid)` method (where uuid is the unique id of the connected player)
+你可以通过使用 `FloodgateApi#getPlayer(uuid)`获取实例
