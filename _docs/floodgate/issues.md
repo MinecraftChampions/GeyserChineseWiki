@@ -20,36 +20,36 @@ title: 常见异常
 ## `javax.crypto.AEADBadTagException: Tag mismatch!`
 
 如果同时在一台服务器安装了Geyser和Floodgate, 请删除 `floodgate` 文件夹, 并删除Geyser文件夹下的`key.pem`.
-如果在不同的服务器, this could also be an error related to uploading through FTP. Using ASCII will not work here, and you need to make sure you're on binary when uploading. We recommend using [WinSCP](https://winscp.net/eng/index.php) if you need to use FTP.
+如果在不同的服务器, 可能是因为FTP上传的原因. 不要使用ASCII编码, 并且当成二进制文件上传. GeyserMC推荐使用 [WinSCP](https://winscp.net/eng/index.php) (译者本人也在使用).
 
 ## java.lang.NumberFormatException: For input string: ""
 
-You're trying to log in without an Xbox account. Floodgate requires an Xbox account to authenticate the Bedrock player.
+基岩版玩家没有Xbox账号进行登录时会触发
 
-## Geyser-Floodgate:51777 lost connection: Internal Exception: java.lang.NumberFormatException: For input string: "SfqdXv36" (or a similar error)
+## Geyser-Floodgate:51777 lost connection: Internal Exception: java.lang.NumberFormatException: For input string: "SfqdXv36" (或者类似错误)
 
-Set `ip-forwarding` in your BungeeCord to `true`.
+请把BungeeCord 的 `ip-forwarding` 改为 `true`.
 
-## "Please connect through the official Geyser" disconnect message
+## "Please connect through the official Geyser"
 
-Ensure that Floodgate and Geyser are both up-to-date.
+更新Geyser和Floodgate
 
-## Prefix is not changing on the server after changing it in the config.
+## 更改基岩版前缀后不生效
 
-Between the Paper builds of 1.15.2-355 and 1.16.5-505, there was a bug where Floodgate players who had already connected to the server would not have their prefixed changed. Paper builds 1.16.5-506 and later fix this issue.
+在paper的 1.15.2-355 和 1.16.5-505 版本会触发, 更新paper版本解决
 
-Ensure that you removed the `usercache.json` file from the server root directory and restart your server.
+另外请确保删除服务端根目录下 `usercache.json`文件后重启服务端
 
-## Issues with LuckPerms and prefixes
+## LuckPerms前缀相关问题
 
-Set `allow-invalid-usernames` to `true` in LuckPerms' config.
+在LuckPerms配置文件里启用 `allow-invalid-usernames`
 
-## Failed to verify username! (with Paper)
+## Failed to verify username! (无法验证用户名,Paper)
 
-To completely mitigate this issue, disable `perform-username-validation` in the [unsupported settings of the `config/paper-global.yml` file](https://paper.readthedocs.io/en/latest/server/configuration.html#unsupported-settings) (`paper.yml` in the root server folder on servers below 1.19). Using Floodgate on the backend servers will also mitigate this issue.
+要想解决此问题, 在 [`config/paper-global.yml`文件](https://paper.readthedocs.io/en/latest/server/configuration.html#unsupported_settings)禁用 `perform-username-validation`  (在低于1.19的paper服务器中`paper.yml`在服务器根目录). 在代理服务器上使用Floodgate可以解决此问题.
 
-## Error with Forge or Fabric Bukkit Hybrid
+## 在模组插件混合端中使用Floodgate报错
 
-At this time, there is no way to run Floodgate on servers that mix Forge and Bukkit or Fabric and Bukkit (For example: Magma, Mohist, and Cardboard/Bukkit4Fabric) - most hybrids do not support the complicated procedures we need to do in order to allow Bedrock players to connect (for the technically minded: these server softwares typically don't support NMS). 
+目前,Floodgate还不支持在混合端上运行.
 
-If you wish to use Floodgate in combination with hybrid servers, we recommend putting these servers behind a BungeeCord or Velocity proxy, and running Floodgate on the proxy.
+想要使用Floodgate, 请把Floodgate丢到代理服务端
