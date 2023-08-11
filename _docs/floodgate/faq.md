@@ -4,13 +4,13 @@ title: 常见问题
 
 # 常见问题
 
-## Changing/disabling the prefix
+## 改变/禁用 前缀
 
-***Please note: we do not recommend removing the prefix unless you are certain that no one will share a username between a Java and Bedrock player. Duplicated usernames will cause weird situations, like being unable to teleport to one of the players.***
+***请注意: 不建议禁用前缀,因为Java用户和基岩版用户难免会有重名.同理,如果你是离线服,也建议给离线玩家加上前缀***
 
-In your Floodgate config, change `username-prefix` to whichever prefix you desire - you can set it to `""` and there will be no prefix.
+在Floodgate配置文件中, 更改 `username-prefix` 为你想要的前缀 - 同时如果像禁用它,可以直接设置为 `""`
 
-On some older Paper servers (or any forks that use them), you may need to also shut down your server and delete your `usercache.json` file located in the same folder as your server jar to prevent users who already joined from having the old prefix. See [this issue](/floodgate/issues/#prefix-is-not-changing-on-the-server-after-changing-it-in-the-config) for more information.
+在老版本Paper服务端使用时,建议删除 `usercache.json` 文件,详见[此页](/floodgate/issues/#更改基岩版前缀后不生效) .
 
 ## Obtaining UUIDs for Floodgate players
 Check your server logs, or use [this](https://uuid.kejona.dev/) page. If this doesn't work, then try this method:
