@@ -2,22 +2,24 @@
 title: 功能
 ---
 
-## Whitelist command
+## 白名单命令
 
-Floodgate 2.0 has a whitelist command, `fwhitelist`, that should be used for adding or removing Floodgate players to whitelist.json. The username prefix doesn't need to be included.
+Floodgate 2.0 有着一个白名单命令: `fwhitelist`, 用于将基岩版玩家添加到`whitelist.json`(白名单文件). 不需要输入基岩版玩家的前缀 .
+
+示例:
 `fwhitelist add Tim203`
 `fwhitelist remove Tim203`
 
-You can also specify a UUID: `fwhitelist add 00000000-0000-0000-0009-01f64f65c7c3`
+同时你也可以使用UUID `fwhitelist add 00000000-0000-0000-0009-01f64f65c7c3`
 
-The permission node is `floodgate.command.fwhitelist`.
+它需要的权限为 `floodgate.command.fwhitelist`.
 
-## What is skin uploading?
-Skins of Bedrock player should be visible to Java players on servers with Floodgate 2.0 installed.  
-If they aren't, it's most likely that the skin uploading queue has grown too large and can take a while to upload your skin.
+## 什么是皮肤上传?
+要想Java玩家看到基岩版玩家的皮肤,就得安装Floodgate
+如果看不见,就等一下.
 
-Skin uploading is also a part of the [Global Api](/geyser/global-api). It is responsible for converting Bedrock skins to Java skins and uploading them to Mojang servers make them show up on Java Edition.
+皮肤上传是 [全局Api的一部分](/geyser/global-api).它负责将基岩版玩家的皮肤转换为Java版玩家的皮肤并上传到Mojang的服务器
 
-We're using MineSkin internally. MineSkin is running on accounts donated by the community. So if you want to support MineSkin and make the upload times faster, feel free to look at [this page](https://mineskin.org/account) for more info.
+GeyserMC使用 MineSkin. MineSkin 是在社区的赞助之下运行的. 所以如果你想支持MineSkin,详见 [此页面](https://mineskin.org/account).
 
 ![Example skin upload](https://cdn.discordapp.com/attachments/613168850925649981/815969801763160104/unknown.png)
