@@ -1,4 +1,4 @@
-# Floodgate setup on a BungeeCord/Velocity proxy
+# 在 BungeeCord/Velocity 搭建Floodgate
 
 <div class="alert alert-info" role="alert">
 	你可以只在代理服务端上安装Floodgate, 但是建议在所有子服务器上安装Floodgate

@@ -18,7 +18,7 @@ title: 常见问题
 首先,你需要获取玩家的xuid. 有许多第三方网站可以做到这一点, 例如, [这一个](https://www.cxkes.me/xbox/xuid) (与GeyserMC无关). 选择 "Hexidecimal."(16进制) 然后输入玩家的Xbox名称(代号), 然后点击提交, 然后就会显示以下格式的xuid `xxxxxxxxxxxxxxxx`. 要想转换xuid为uuid, 请把uuid转换为以下格式 `00000000-0000-0000-xxxx-xxxxxxxxxxxx`. 如果格式正确,这就是uuid.
 
 ## 使用 变量 (PlaceholderAPI)
-如果你使用Spigot版本的Floodgate, 可以下载 [此插件](https://github.com/rtm516/FloodgatePlaceholders/). 使用变量只需要安装 [PlaceholderAPI](https://www.spigotmc.org/resources/6245/),不需要做一些其他的设置. 如果在BungeeCord等代理服务端,详见搭建章节.
+如果你使用Spigot版本的Floodgate, 可以下载 [此插件](https://github.com/rtm516/FloodgatePlaceholders/). 使用变量只需要安装 [PlaceholderAPI](https://www.spigotmc.org/resources/6245/),不需要做一些其他的设置. 如果在BungeeCord等代理服务端,详见代理端搭建Floodgate章节,在子服务器中安装Floodgate.
 
 ## 使用 Skript
 在 [这里](https://github.com/Camotoy/floodgate-skript). 
