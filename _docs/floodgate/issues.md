@@ -38,7 +38,7 @@ title: 常见异常
 
 在paper的 1.15.2-355 和 1.16.5-505 版本会触发, 更新paper版本解决
 
-另外请确保删除服务端根目录下 `usercache.json`文件后重启服务端
+另外请确保删除服务端根目录下 `usercache.json` 文件后重启服务端
 
 ## LuckPerms前缀相关问题
 

@@ -15,10 +15,10 @@ title: 常见问题
 ## 获取基岩版玩家的uuid
 控制台日志玩家加入时有显示, 或者使用 [此页面](https://uuid.kejona.dev/). 如果没有效果,请尝试以下方法:
 
-首先,你需要获取玩家的xuid. 有许多第三方网站可以做到这一点, 例如, [这一个](https://www.cxkes.me/xbox/xuid) (与GeyserMC无关). Make sure to choose "Hexidecimal." You'll need to enter the player's Xbox Gamertag, and, once submitted, and it should display the XUID in the format of `xxxxxxxxxxxxxxxx`. To turn the XUID into a UUID that Java Edition can recognize, you need to put the XUID in this format: `00000000-0000-0000-xxxx-xxxxxxxxxxxx`. If formatted right, Java Edition should accept it as a UUID.
+首先,你需要获取玩家的xuid. 有许多第三方网站可以做到这一点, 例如, [这一个](https://www.cxkes.me/xbox/xuid) (与GeyserMC无关). 选择 "Hexidecimal."(16进制) 然后输入玩家的Xbox名称(代号), 然后点击提交, 然后就会显示以下格式的xuid `xxxxxxxxxxxxxxxx`. 要想转换xuid为uuid, 请把uuid转换为以下格式 `00000000-0000-0000-xxxx-xxxxxxxxxxxx`. 如果格式正确,这就是uuid.
 
-## Using PlaceholderAPI
-If you're using the Spigot version of Floodgate, download the Placeholder plugin [here](https://github.com/rtm516/FloodgatePlaceholders/). Using the placeholders shouldn't require additional setup other than having [PlaceholderAPI](https://www.spigotmc.org/resources/6245/) installed. See the section above on installing Floodgate on backend servers if you wish to use this on BungeeCord.
+## 使用 变量 (PlaceholderAPI)
+如果你使用Spigot版本的Floodgate, 可以下载 [此插件](https://github.com/rtm516/FloodgatePlaceholders/). 使用变量只需要安装 [PlaceholderAPI](https://www.spigotmc.org/resources/6245/),不需要做一些其他的设置. See the section above on installing Floodgate on backend servers if you wish to use this on BungeeCord.
 
 ## Using Skript
 If you're using the Spigot version of Floodgate, there is an unofficial plugin that adds Skript support [here](https://github.com/Camotoy/floodgate-skript). 
