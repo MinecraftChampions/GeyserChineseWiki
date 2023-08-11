@@ -1,6 +1,6 @@
 {
   "description_templates": {
-    "default": "Get Geyser as a plugin, as in the [setup guide](https://wiki.geysermc.org/geyser/setup/). Use the same port as your Java server for the Bedrock port in your config (either by setting it yourself, or enabling \"clone-remote-port\") and connect with the same IP and port as you would on Java."
+    "default": "Get Geyser as a plugin, as in the [setup guide](/geyser/setup/). Use the same port as your Java server for the Bedrock port in your config (either by setting it yourself, or enabling \"clone-remote-port\") and connect with the same IP and port as you would on Java."
   },
   "built_in": [
     {
