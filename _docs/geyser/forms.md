@@ -95,7 +95,7 @@ player.sendForm(
 
 当我们发送完表单时,我们就需要接受客户端的相应并作出相应的处理.<br>
 要想处理,我们可以使用: `validResultHandler(BiConsumer<Form, ValidFormResponseResult> | Consumer<ValidFormResponseResult>)`, `invalidResultHandler`, `closedResultHandler` 和 `closedOrInvalidResultHandler`.<br>
-Here follows an example that uses result handlers:
+示例:
 ```java
 SimpleForm.builder()
         .title("标题")
