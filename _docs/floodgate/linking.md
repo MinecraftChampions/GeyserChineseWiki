@@ -31,7 +31,10 @@ I:
   要想取消绑定,请再次加入服务器并输入 `/unlinkaccount` 指令. 
 
 II:
-   使用网页进行绑定:[跟着网页的指导进行绑定](https://link.geysermc.org/method/online)
+
+  使用网页进行绑定.
+
+  详见:https://link.geysermc.org/method/online
 
 默认情况下Floodgate 2.0 都启用了全局绑定,相关配置文件如下:
 ```yml
