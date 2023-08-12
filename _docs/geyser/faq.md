@@ -16,7 +16,16 @@ title: 常见问题
         </h2>
         <div id="{{ id }}" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
           <div class="accordion-body">
-            {{ question.content | markdownify }}
+            {{ assign content = question.content | markdownify }}
+            {% assign parts = content | split: "}}" %}
+            {% for part in parts %}
+              {% if part contains "{{" %}
+                {% assign liquid_statement = part | replace: "{{", "" | replace: "}}", "" %}
+                {{ liquid_statement | liquid }}
+              {% else %}
+                {{ part }}
+              {% endif %}
+            {% endfor %}
           </div>
         </div>
       </div>
