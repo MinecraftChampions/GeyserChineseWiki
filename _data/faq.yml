@@ -35,9 +35,6 @@
 
     - title: Geyser-Spigot 支持什么版本?
       content: |
-        {{ site.data.versions.java }}
-         {{ site.data.versions.java }}
-         {{ site.data.versions.java }}
         Geyser-Spigot插件支持1.13.2及以上的版本. 插件不支持任何早期版本 - 请改用代理端版本或独立版本.
         由于Geyser模拟了 {{ site.data.versions.java }} 的Java客户端连接, 所以你需要 [安装 ViaVersion](https://www.spigotmc.org/resources/viaversion.19254/) <br>
 
