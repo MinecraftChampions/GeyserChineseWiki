@@ -1,3 +1,6 @@
+{% include version.json %}
+{% assign versions = include.content %}
+
 - title: 常见问题
   desc: |
     在这里,你可以找到有关Geyser的相关问题 - 如果你没有找到自己想要寻找的问题,可以加入 [GeyserMC's Discord](https://discord.gg/GeyserMC)!
@@ -36,8 +39,7 @@
     - title: Geyser-Spigot 支持什么版本?
       content: |
         Geyser-Spigot插件支持1.13.2及以上的版本. 插件不支持任何早期版本 - 请改用代理端版本或独立版本.
-        {% assign versions = site.data.versions %}
-        由于Geyser模拟了 {{ data2.java }} 的Java客户端连接, 所以你需要 [安装 ViaVersion](https://www.spigotmc.org/resources/viaversion.19254/) <br>
+        由于Geyser模拟了 {{ versions.java }} 的Java客户端连接, 所以你需要 [安装 ViaVersion](https://www.spigotmc.org/resources/viaversion.19254/) <br>
 
         为了让基岩版玩家在 1.19.3+ 发消息 或者在 1.19.1/1.19.2 加入, 你需要禁用消息签名, 详见 [消息签名](/geyser/secure-chat/). <br>
 
