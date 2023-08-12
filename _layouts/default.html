@@ -90,7 +90,7 @@
 	<script src="{{ '/js/page-nav.js' | relative_url }}"></script>
 	<script>
 		console.log("开始执行")
-		const regex = /\{\{site.data.([^\}]+)\}\}/
+		const regex = /\{\{ site.data.([^\}]+) \}\}/
 		let match
 		let str = document.getElementById("content").innerHTML;
 		console.log(document.getElementById("content").innerHTML)
