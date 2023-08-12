@@ -30,9 +30,10 @@
 	<link rel="icon" type="image/png" sizes="192x192" href="{{ 'android-chrome-192x192.png' | relative_url }}">
 	<link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | relative_url }}">
 	<link rel="mask-icon" href="{{ 'safari-pinned-tab.svg' | relative_url }}" color="#248f00">
+
 	<!-- Used to store the specified content -->
-	<var id="versions.java" style="display: none">{{ site.data.versions.java }}</var>
-	<var id="versions.bedrock" style="display: none">{{ site.data.versions.bedrock }}</var>
+	<meta id="versions.java">{{ site.data.versions.java }}</meta>
+	<meta id="versions.bedrock">{{ site.data.versions.bedrock }}</meta>
   </head>
   <body>
 	<header>
@@ -93,7 +94,11 @@
 		let march
 		let str = document.getElementById("content").innerHTML;
 		while (match = regex.exec(document.getElementById("content").innerHTML) !== null) {
-			str = str.replace('${match[0]}',document.getElementById('${match[1]}'))
+			str = str.replace(`${match[0]}`,document.getElementById(`${match[1]}`))
+			console.log(`${match[0]}`)
+			console.log(`${match[1]}`)
+			console.log(document.getElementById(`${match[1]}`))
+
 		}
 		document.getElementById.innerHTML = str
 	</script>
