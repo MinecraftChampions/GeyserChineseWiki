@@ -91,7 +91,7 @@ If you're running into issues with some Bedrock players being unable to connect 
 
 # 作为故障排除的最后手段...
 
-下载 [MC基岩版服务端](https://www.minecraft.net/en-us/download/server/bedrock) 运行连接判断问题出在哪里
+下载 [MC基岩版服务端](https://www.minecraft.net/download/server/bedrock) 运行连接判断问题出在哪里
 
 # Using Geyser on the same computer
 

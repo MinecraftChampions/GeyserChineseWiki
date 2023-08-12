@@ -59,7 +59,7 @@ CustomForm就如同它的名字一样,在三个表单类型里自定义性最强
 
 <img src="{{ '/img/forms/CustomForm.png' | relative_url }}">
 
-Code used in the image:
+使用的代码如下:
 
 ```java
 CustomForm.builder()

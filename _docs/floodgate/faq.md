@@ -21,4 +21,4 @@ title: 常见问题
 如果你使用Spigot版本的Floodgate, 可以下载 [此插件](https://github.com/rtm516/FloodgatePlaceholders/). 使用变量只需要安装 [PlaceholderAPI](https://www.spigotmc.org/resources/6245/),不需要做一些其他的设置. 如果在BungeeCord等代理服务端,详见代理端搭建Floodgate章节,在子服务器中安装Floodgate.
 
 ## 使用 Skript
-在 [这里](https://github.com/Camotoy/floodgate-skript). 
+在 [这里](https://github.com/kejonaMC/floodgate-skript). 

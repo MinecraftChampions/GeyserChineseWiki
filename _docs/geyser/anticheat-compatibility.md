@@ -31,7 +31,7 @@ title: 反作弊兼容
 - [AntiCheatReloaded](https://www.spigotmc.org/resources/23799/){:target="_blank"} - 更新于2021
 - [Negativity V1](https://www.spigotmc.org/resources/48399/){:target="_blank"} - 更新于2022
 - [NoCheatPlus](https://ci.codemc.io/job/Updated-NoCheatPlus/job/Updated-NoCheatPlus/){:target="_blank"} ([Compat NCP](https://github.com/Updated-NoCheatPlus/CompatNoCheatPlus/){:target="_blank"} 提供部分兼容) - 更新于2021
-- [GodsEye](https://www.spigotmc.org/resources/69595/){:target="_blank"} ([GodsEyeGeyserMC](https://github.com/TheDejavu/GodsEyeGeyserMC/releases){:target="_blank"} 提供部分兼容) (付费) - 更新于2022
+- [GodsEye](https://www.spigotmc.org/resources/69595/){:target="_blank"} ([GodsEyeGeyserMC](https://github.com/TheDejavu/GodsEyeGeyserMC/relesase){:target="_blank"} 提供部分兼容) (付费) - 更新于2022
 - [Kauri](https://www.spigotmc.org/resources/53721/){:target="_blank"} (付费) - 更新于2022
 - [Reflex](https://www.spigotmc.org/resources/21122/){:target="_blank"} (付费) - 更新于2021
 - [Wraith](https://www.spigotmc.org/resources/66887/){:target="_blank"} (付费) - 更新于2021

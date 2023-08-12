@@ -51,7 +51,7 @@ GeyserApi.api();
 
 `GeyserApi#sendForm(UUID, Form(Builder))`<br>
 发送表单给基岩版玩家.<br>
-详见 [表单](/floodgate/forms/).
+详见 [表单](/geyser/forms/).
 
 `GeyserApi#onlineConnectionsCount()`<br>
 获取在线基岩版玩家的数量

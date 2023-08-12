@@ -20,7 +20,7 @@ title: 常见异常
 ## `javax.crypto.AEADBadTagException: Tag mismatch!`
 
 如果同时在一台服务器安装了Geyser和Floodgate, 请删除 `floodgate` 文件夹, 并删除Geyser文件夹下的`key.pem`.
-如果在不同的服务器, 可能是因为FTP上传的原因. 不要使用ASCII编码, 并且当成二进制文件上传. GeyserMC推荐使用 [WinSCP](https://winscp.net/eng/index.php) (译者本人也在使用).
+如果在不同的服务器, 可能是因为FTP上传的原因. 不要使用ASCII编码, 并且当成二进制文件上传. GeyserMC推荐使用 [WinSCP](https://winscp.net) (译者本人也在使用).
 
 ## java.lang.NumberFormatException: For input string: ""
 

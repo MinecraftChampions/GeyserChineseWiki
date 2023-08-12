@@ -38,7 +38,7 @@
         Geyser-Spigot插件支持1.13.2及以上的版本. 插件不支持任何早期版本 - 请改用代理端版本或独立版本.
         由于Geyser模拟了 {{ site.data.versions.java }} 的Java客户端连接, 所以你需要 [安装 ViaVersion](https://www.spigotmc.org/resources/viaversion.19254/) <br>
 
-        为了让基岩版玩家在 1.19.3+ 发消息 或者在 1.19.1/1.19.2 加入, 你需要禁用消息签名, 详见 [消息签名](geyser/secure-chat/). <br>
+        为了让基岩版玩家在 1.19.3+ 发消息 或者在 1.19.1/1.19.2 加入, 你需要禁用消息签名, 详见 [消息签名](/geyser/secure-chat/). <br>
 
         运行Geyser需要使用Java16及其以上版本的Java. 如果你不知道如何安装Java,请阅读 [安装Java](https://docs.papermc.io/misc/java-install) .
         不支持 Java 16 的 Paper 版本可以在 Java 启动参数中添加 `-DPaper.IgnoreJavaVersion=true` 以支持Paper运行在Java16及其以上的版本.
@@ -48,11 +48,11 @@
         独立版可以加入任何平台的服务器
         * Geyser-Spigot 支持:
           * [Spigot](https://www.spigotmc.org/)
-          * [Paper](https://papermc.io/downloads) (推荐)
+          * [Paper](https://papermc.io/downloads/paper) (推荐)
           * 其他Spigot分支
         * Geyser-Bungee 支持:
           * [BungeeCord](https://www.spigotmc.org/wiki/bungeecord/)
-          * [Waterfall](https://papermc.io/downloads#Waterfall)
+          * [Waterfall](https://papermc.io/downloads/Waterfall)
           * 其他BungeeCord分支
         * Geyser-Velocity 支持 [Velocity](https://www.velocitypowered.com/)
         * Geyser-Sponge 支持 [SpongeVanilla 或 SpongeForge](https://www.spongepowered.org/)
@@ -126,7 +126,7 @@
 
     - title: 如何实现自动更新 Geyser？
       content: |
-        GeyserUpdater ([GitHub 页面](https://github.com/ProjectG-Plugins/GeyserUpdater)/[Spigot 页面](https://www.spigotmc.org/resources/88555/)) 可以实现.
+        GeyserUpdater ([GitHub 页面](https://github.com/kejonaMC/GeyserUpdater)/[Spigot 页面](https://www.spigotmc.org/resources/88555/)) 可以实现.
 
     - title: 如何让 DiscordSRV 显示 Floodgate 2.0 或者 GeyserSkinManager 的皮肤?
       content: |
