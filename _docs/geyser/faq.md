@@ -16,7 +16,7 @@ title: 常见问题
         </h2>
         <div id="{{ id }}" class="accordion-collapse collapse" data-bs-parent="#accordionFaq">
           <div class="accordion-body">
-            {{ question.content | markdownify | replace: "{{ site.data.versions.java }}",{{ site.data.versions.java }} }}
+            {{ question.content | markdownify | replace: "{{ site.data.versions.java }}", {{ site.data.versions.java }} }}
           </div>
         </div>
       </div>
