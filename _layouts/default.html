@@ -86,9 +86,10 @@
 		&copy; {{ 'now' | date: "%Y" }} {{ site.author }}
 	</footer> -->
 	<script>
+		console.log("开始执行")
 		const regex = /\{\{site.data.([^\}]+)\}\}/
 		let march
-		let str = document.body.innerHTML;
+		let str = document.getElementById("content").innerHTML;
 		while (match = regex.exec(document.getElementById("content").innerHTML) !== null) {
 			str = str.replace('${match[0]}',document.getElementById('${match[1]}'))
 		}
