@@ -32,8 +32,8 @@
 	<link rel="mask-icon" href="{{ 'safari-pinned-tab.svg' | relative_url }}" color="#248f00">
 
 	<!-- Used to store the specified content -->
-	<meta id="versions.java">{{ site.data.versions.java }}</meta>
-	<meta id="versions.bedrock">{{ site.data.versions.bedrock }}</meta>
+	<var id="versions.java">{{ site.data.versions.java }}</var>
+	<var id="versions.bedrock">{{ site.data.versions.bedrock }}</var>
   </head>
   <body>
 	<header>
@@ -97,8 +97,11 @@
 		while ((match = regex.exec(str)) !== null) {
 			str = str.replace(`${match[0]}`,document.getElementById(`${match[1]}`).innerHTML)
 			console.log(`${match[0]}`)
+			console.log(`996`)
 			console.log(`${match[1]}`)
+			console.log(`995`)
 			console.log(document.getElementById(`${match[1]}`).innerHTML)
+			console.log(str)
 			document.getElementById.innerHTML = str
 		}
 	</script>
