@@ -4,7 +4,7 @@ title: 自定义物品
 
 # 使用Geyser自定义物品
 
-想要自定义物品(插件端通过`custom_model_data`设置的资源包,一些特定的物品),你必须学会注册它,最简单的方法就是通过[JSON文件映射](#geyser-extensions),或者是使用Java写Geyser的[扩展插件](#geyser-extensions)
+想要自定义物品(插件端通过`custom_model_data`设置的资源包,一些特定的物品),你必须学会注册它,最简单的方法就是通过[JSON文件映射](#json-映射),或者是使用Java写Geyser的[扩展插件](#geyser扩展)
 需要注意的是:如果你想扩展非原版物品只能使用Geyser扩展
 
 ## JSON 映射
