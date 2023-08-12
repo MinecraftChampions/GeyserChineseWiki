@@ -30,12 +30,11 @@
 	<link rel="icon" type="image/png" sizes="192x192" href="{{ 'android-chrome-192x192.png' | relative_url }}">
 	<link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | relative_url }}">
 	<link rel="mask-icon" href="{{ 'safari-pinned-tab.svg' | relative_url }}" color="#248f00">
-
-	<!-- Used to store the specified content -->
-	<var id="versions.java">{{ site.data.versions.java }}</var>
-	<var id="versions.bedrock">{{ site.data.versions.bedrock }}</var>
   </head>
   <body>
+    <!-- Used to store the specified content,it  -->
+    <var id="versions.java" style="display:none;">{{ site.data.versions.java }}</var>
+    <var id="versions.bedrock" style="display:none;">{{ site.data.versions.bedrock }}</var>
 	<header>
 		<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
 			<div class="container-fluid">
@@ -93,15 +92,8 @@
 		const regex = /\{\{ site.data.([^\}]+) \}\}/
 		let match
 		let str = document.getElementById("content").innerHTML;
-		console.log(document.getElementById("content").innerHTML)
 		while ((match = regex.exec(str)) !== null) {
 			str = str.replace(`${match[0]}`,document.getElementById(`${match[1]}`).innerHTML)
-			console.log(`${match[0]}`)
-			console.log(`996`)
-			console.log(`${match[1]}`)
-			console.log(`995`)
-			console.log(document.getElementById(`${match[1]}`).innerHTML)
-			console.log(str)
 			document.getElementById("content").innerHTML = str
 		}
 	</script>
