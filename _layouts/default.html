@@ -91,14 +91,14 @@
 	<script>
 		console.log("开始执行")
 		const regex = /\{\{site.data.([^\}]+)\}\}/
-		let march
+		let match
 		let str = document.getElementById("content").innerHTML;
+		console.log(document.getElementById("content").innerHTML)
 		while (match = regex.exec(document.getElementById("content").innerHTML) !== null) {
 			str = str.replace(`${match[0]}`,document.getElementById(`${match[1]}`))
 			console.log(`${match[0]}`)
 			console.log(`${match[1]}`)
 			console.log(document.getElementById(`${match[1]}`))
-
 		}
 		document.getElementById.innerHTML = str
 	</script>
