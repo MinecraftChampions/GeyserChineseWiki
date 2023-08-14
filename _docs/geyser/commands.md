@@ -4,7 +4,7 @@ title: Geyser命令列表
 
 # 命令 和 权限
 
-|                  命令                 |              权限             |         描述         |
+|                  命令                  |              权限               |         描述         |
 |:------------------------------------:|:-----------------------------:|:------------------:|
 |    `geyser help` <br> `geyser ?`     |     `geyser.command.help`     |       打开帮助页面       |
 |        `geyser advancements`         | `geyser.command.advancements` |     打开Java成就菜单     |
@@ -16,5 +16,5 @@ title: Geyser命令列表
 | `geyser shutdown` <br> `geyser stop` |   `geyser.command.shutdown`   |      关闭Geyser      |
 |         `geyser statistics`          |  `geyser.command.statistics`  |    打开Java信息统计菜单    |
 |           `geyser version`           |   `geyser.command.version`    |  显示Geyser版本并检查更新.  |
-
+|         `geyser tooltips`            |   `geyser.command.tooltips`   | 打开高级提示框(Java F3+H) |
 对于Floodgate的命令, 请转到 [Floodgate命令列表](/floodgate/commands/).
