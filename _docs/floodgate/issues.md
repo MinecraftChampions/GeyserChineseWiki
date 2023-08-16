@@ -53,3 +53,8 @@ title: 常见异常
 目前,Floodgate还不支持在混合端上运行.
 
 想要使用Floodgate, 请把Floodgate丢到代理服务端
+
+## 使用全局绑定后uuid和原本uuid不同
+
+注意, 请确保 `server.properties` 里的 `online-mode` 为 `true`, 否则, 正版玩家在服务器的uuid会与mojang服务器不一致, 从而导致uuid异常.
+如果要想在不改动 `server.properties` 的情况下, 请使用本地绑定
